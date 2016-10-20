@@ -1,0 +1,371 @@
+/** CSS for static pages. */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700);
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+}
+
+html, body, * {
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #2ebc21;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: 0 0 15px 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 33px;
+}
+
+.internallyLinkedContent h2 {
+  margin-top: -170px;
+  padding: 170px 0 0 0;
+} 
+
+h3 {
+  font-size: 27px;
+}
+
+p {
+  margin: 0 0 15px 0;
+}
+
+#layoutTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#layoutTable tr, #layoutTable td {
+  border: 0;
+}
+
+#helperContainer {
+  background: #1a1a1a;
+  color: #fff;
+  min-width: 250px;
+  position: relative;
+  width: 250px;
+  z-index: 2000;
+}
+
+#mainContainer {
+  background: linear-gradient(to bottom, #e3f5ab 0%,#e3f5ab 5%,#fff 40%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+#header {
+  left: 50%;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 100%;
+  z-index: 1000;
+}
+
+#banner {
+  background: #1a1a1a;
+  padding: 10px 0;
+}
+
+#bannerLink {
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  letter-spacing: 5px;
+  padding: 8px;
+  text-decoration: none;
+  transition: background 0.45s ease;
+}
+
+#bannerLink:hover {
+  background: #257F00;
+}
+
+#mainMenu {
+  background: rgba(26, 26, 26, 0.39);
+  border-bottom: 1px solid #bdff44;
+  padding: 10px 0 0 0;
+}
+
+#mainMenu a {
+  background: #1a1a1a;
+  border-radius: 8px;
+  color: #fff;
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  padding: 8px;
+  text-decoration: none;
+  transition: background 0.45s ease;
+}
+
+#mainMenu a:hover {
+  background: #257F00;
+  color: #fff;
+}
+
+#mainContent a, #footer a {
+  transition: box-shadow 0.3s ease;
+}
+
+#mainContent a:hover, #footer a:hover {
+  box-shadow: 0 5px 0px #bdff44;
+}
+
+#tagline {
+  font-size: 40px;
+  text-align: center;
+}
+
+#mainContent, #footer {
+  margin: auto;
+  max-width: 1000px;
+  padding: 15px 0;
+}
+
+#mainContent {
+  padding: 15px;
+}
+
+.bragEntry {
+  margin: 15px 0;
+}
+
+.bragFirst {
+  float: left;
+  margin-right: 20px;
+}
+
+.bragFirst img {
+  border-radius: 15px;
+  position: relative;
+  top: 7px;
+}
+
+.bragEntry h2 {
+  font-size: 30px;
+  margin: 30px 0 15px 0;
+}
+
+.bragEntry h2:first-child {
+  margin-top: 0;
+}
+
+.bragEntry p {
+  margin: 0 0 15px 0;
+}
+
+.clearer {
+  clear: both;
+}
+
+.descriptionTable {
+  border: 0;
+  border-collapse: collapse;
+}
+
+.descriptionTable tr {
+  display: block;
+  margin: 0 0 15px 0;
+}
+
+.iconPreview, .keyboardShortcutPreview {
+  font-weight: bold;
+  margin: 0 15px 0 0;
+  min-width: 115px;
+  vertical-align: middle;
+}
+
+.iconPreview img {
+  height: 50px;
+  width: 50px;
+}
+
+.iconDescription {
+  vertical-align: middle;
+}
+
+em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+#tableOfContents {
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 250px;
+  z-index: 2000;
+}
+
+#tableOfContents a {
+  border-top: 1px solid #3d3d3d;
+  color: #bdff44;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  text-indent: 15px;
+  transition: background 0.6s ease;
+  width: 100%;
+}
+
+#tableOfContents a:first-child {
+  border-top: none;
+}
+
+#tableOfContents a:hover {
+  background: #257F00; /** A dark green. */
+}
+
+.imageParagraph {
+  text-align: center;
+}
+
+.imageParagraph img {
+  border-radius: 8px;
+}
+
+.borderedImage {
+  border: 1px solid #000;
+}
+
+.pageEmbed {
+  border: none;
+  border-radius: 10px;
+  display: block;
+  height: 850px;
+  width: 100%;
+}
+
+#footer {
+  padding: 0 0 30px 0;
+  text-align: center;
+}
+
+#errorsList {
+  background: #f2dede;
+  border: 1px solid #a94442;
+  border-radius: 10px;
+  color: #a94442;
+  list-style: none;
+  margin: 0 0 15px 0;
+  padding: 10px;
+}
+
+.formTable {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.formTable tr {
+  margin: 0 0 10px 0;
+}
+
+.formTable td {
+  margin: 0 0 10px 0;
+}
+
+.formTable td:first-child, .formTable td:first-child * {
+  font-weight: bold;
+  padding: 0 10px 0 0;
+  text-align: right;
+}
+
+.formTable td input {
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 5px;
+  width: 90%;
+}
+
+.formTable tr {
+  margin: 0 0 10px 0;
+}
+
+.tableRowSpacer {
+  height: 15px;
+}
+
+textarea {
+  border: 1px solid #000;
+  border-radius: 5px;
+  min-height: 200px;
+  padding: 5px;
+  width: 95%;
+}
+
+button, input[type=submit] {
+  width: 100px;
+  height: 50px;
+  display: inline-block;
+  background: #F3FBDB;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+}
+
+button:hover, input[type=submit]:hover {
+  background: #000;
+  color: #F3FBDB;
+}
+
+#submitArea {
+  margin: 10px 0 10px 0;
+}
+
+#submitArea input[type=submit] {
+  padding: 0 10px;
+  width: auto;
+}
+
+.focusBox {
+  background: #dff0d8;
+  border: 1px solid #d6e9c6;
+  border-radius: 10px;
+  color: #3c763d;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  word-break: break-all;
+}
+
+.halfInputTd {
+  width: 50%;
+}
+
+.infoBox {
+  border: 3px solid #000;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.paypalForm {
+  text-align: center;
+}
+
+.paypalForm table {
+  margin: 0 auto;
+}

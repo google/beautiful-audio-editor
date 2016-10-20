@@ -1,0 +1,159 @@
+/**
+ * Toolbar-related CSS
+ */
+
+@def LIGHT_COLOR #EFEFEF; /** A light grey */
+@def TOOLBAR_HEIGHT 40px;
+@def TOOLBAR_PADDING 3px;
+@def TOOLBAR_ITEM_BORDER_RADIUS 10px;
+
+.toolbarArea {
+  background: linear-gradient(to bottom,#222 0%,#000 50%,#111 55%,#000 100%);
+  position: relative;
+}
+
+.toolbarContainer {
+  border: 0px solid LIGHT_COLOR;
+  color: LIGHT_COLOR;
+  display: inline-block;
+  height: TOOLBAR_HEIGHT;
+  padding: TOOLBAR_PADDING 0 add(TOOLBAR_PADDING, 2px) TOOLBAR_PADDING;
+  margin: 0 5px;
+}
+
+.toolbarItem {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: TOOLBAR_ITEM_BORDER_RADIUS;
+  cursor: pointer;
+  display: inline-block;
+  height: TOOLBAR_HEIGHT;
+  margin: 1px TOOLBAR_PADDING 0 0;
+  position: relative;
+  text-align: center;
+  transition: background 0.3s ease;
+  width: TOOLBAR_HEIGHT;
+}
+
+.activeToolbarItem {
+  background-image: linear-gradient(to bottom, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%);
+}
+
+.hoverableApplication .disabledToolbarItem:hover {
+  background: transparent;
+}
+
+.activeToolbarItem, .disabledToolbarItem {
+  cursor: default;
+}
+
+.toolbarItemClickableWhileActive {
+  cursor: pointer;
+}
+
+.toolbarItemClickableWhileActive.disabledToolbarItem {
+  cursor: default;
+}
+
+.toolbarItemIcon {
+  fill: LIGHT_COLOR;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.disabledToolbarItem {
+  opacity: 0.25;
+}
+
+.toolbarItem .toolbarItemBackgroundElement {
+  background-image: linear-gradient(to bottom, rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%);
+  border-radius: TOOLBAR_ITEM_BORDER_RADIUS;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition-duration: 0.4s;
+  width: 100%;
+}
+
+.disabledToolbarItem .toolbarItemBackgroundElement {
+  visibility: hidden;
+}
+
+/** To fade-in a gradient, we make the background element appear gradually. */
+.hoverableApplication .toolbarItem:hover .toolbarItemBackgroundElement {
+  opacity: 1;
+}
+
+/** CSS for the bars/time display toolbar. */
+
+.barTimeItemInternal {
+  color: #000;
+}
+
+.timeSignatureTextContainer {
+  display: inline-block;
+  font-size: 15px;
+  height: 100%;
+  left: 0;
+  line-height: 15px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.barTimeDisplayForbidCover {
+  visibility: hidden;
+}
+
+.numberOfBeatsContainer {
+  margin-top: 4px;
+}
+
+@def CENTER_TRANSLATE translate(-50%,0);
+
+.signatureDividingBarContainer {
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  height: 1px;
+  left: 50%;
+  position: relative;
+  transform: CENTER_TRANSLATE;
+  -webkit-transform: CENTER_TRANSLATE;
+  width: 38%;
+}
+
+/** CSS Pertaining to the item for playing and pausing audio. */
+
+.playPauseItemInternalDom {
+  position: relative;
+}
+
+.playPauseItemInternalDom img {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.playPauseItemInternalDom img:first-child {
+  position: static;
+}
+
+.playPauseItemInternalDom .pauseIcon {
+  visibility: hidden;
+}
+
+.playPauseItemInternalDom .playIcon {
+  visibility: visible;
+}
+
+.playPauseItemInternalDom.currentlyPlaying .pauseIcon {
+  visibility: visible;
+}
+
+.playPauseItemInternalDom.currentlyPlaying .playIcon {
+  visibility: hidden;
+}

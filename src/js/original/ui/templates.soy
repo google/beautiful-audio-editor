@@ -1,0 +1,75 @@
+{namespace audioCat.ui.templates}
+
+/**
+ * The descriptor for a track.
+ * @param trackName The name of the track.
+ */
+{template .TrackDescriptorBox}
+<div class='{css trackDescriptorBox}'>
+  <input class='{css trackTitleDisplay}' type='text' value='{$trackName}'>
+  <div class='{css fxButton}'>
+    <div class='{css backgroundElement}'></div>
+    <div class='{css textContent}'>FX</div>
+  </div>
+  <div class='{css effectChipsAltererWrapper}'></div>
+  <div class='{css trackVolumeControllerContainer}'>
+    <div class='{css volumeSliderContainer}'></div>
+  </div>
+  <div class='{css trackPanControllerContainer}'>
+    <div class='{css panSliderContainer}'></div>
+  </div>
+  <div class='{css trackButtonsContainer}'>
+    <div class='{css trackButton} {css trackMuteButton}'>
+      <div class='{css buttonText}'>Mute</div>
+    </div>
+    <div class='{css trackButton} {css trackSoloButton}'>
+      <div class='{css buttonText}'>Solo</div>
+    </div>
+    <div class='{css trackButton} {css trackDeleteButton}'>
+      <div class='{css buttonText}'>Delete</div>
+    </div>
+  </div>
+</div>
+{/template}
+
+/**
+ * The row of audio data for a track.
+ */
+{template .TrackAudioArea}
+<div class='{css trackAudioArea}'>
+  <div class='{css trackWaveformDisplay}'></div>
+  <div class='{css trackEnvelopeArea}'></div>
+</div>
+{/template}
+
+/**
+ * The UI for the effect chip alterer.
+ * @param effectManagerId The ID of the associated effect manager.
+ */
+{template .EffectChipAlterer}
+<div class='{css effectChipAlterer}'>
+    <div class='{css newEffectButton} {css genericButton}'>
+      <div class='{css backgroundElement}'></div>
+      <div class='{css textContent}'>+</div>
+    </div>
+    <div class='{css effectChipContainer}' data-e='{$effectManagerId}'></div>
+  </div>
+{/template}
+
+/**
+ * A chip representing an effect.
+ * @param effectId The ID of the associated effect.
+ * @param effectName The name of the effect.
+ * @param effectAbbreviation The abbreviation of the effect.
+ */
+{template .EffectChip}
+<div class='{css effectChip}' data-e={$effectId}>
+  <div class='{css removeEffectChipButton}'>
+    <span class='{css textContent}'>&#10005;</span>
+  </div>
+  <div class='{css effectChipMainContent}'>
+    <span class='{css effectChipFullName}'>{$effectName}</span>
+    <span class='{css effectChipAbbreviation}'>{$effectAbbreviation}</span>
+  </div>
+</div>
+{/template}

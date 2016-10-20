@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{# Prevent the helper panel from appearing by overriding it. #}
+{% block helperPanelContainer %}{% endblock helperPanelContainer %}
+
+{% block mainContent %}
+
+<h1>Some Acknowledgements</h1>
+
+<p>
+  We use the <a href='https://developers.google.com/drive/'>Google Drive API</a> to store projects in the cloud.
+</p>
+
+<p>
+  We use <a href='https://nodejs.org/en/'>node.js</a> to set up our compilation process so that we can speedily deliver scripts to your browser.
+</p>
+
+<p>
+  We use the <a href='http://lame.sourceforge.net/'>LAME encoder</a> to generate MP3s.
+</p>
+
+<p>
+  We use <a href='https://www.python.org/'>python</a> to serve pages.
+</p>
+
+{% endblock mainContent %}

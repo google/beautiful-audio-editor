@@ -1,0 +1,533 @@
+/**
+ * CSS for tracks.
+ */
+
+@def DARK_COLOR #007200;
+@def LIGHT_COLOR #6f6;
+@def TRACK_DESCRIPTOR_WIDTH 150px;
+@def TRACK_DESCRIPTOR_PADDING 5px;
+@def TRACKDESCRIPTOR_TOTAL_LENGTH add(add(TRACK_DESCRIPTOR_WIDTH, TRACK_DESCRIPTOR_PADDING), TRACK_DESCRIPTOR_PADDING);
+@def RIGHT_SECTION_BLOCKER_BORDER 3px;
+@def CENTER_TRANSFORM translate(-50%,-50%);
+@def RULER_CONTAINER_HEIGHT 25px;
+
+.slider-label {
+  display: inline;
+}
+
+.slider-right-limiting-label {
+  float: right;
+}
+
+.rulerAreaContainer {
+  height: RULER_CONTAINER_HEIGHT;
+  left: TRACKDESCRIPTOR_TOTAL_LENGTH;
+  position: relative;
+}
+
+.rulerArea {
+  height: RULER_CONTAINER_HEIGHT;
+  left: TRACKDESCRIPTOR_TOTAL_LENGTH;
+  position: fixed;
+  width: 100%;
+  z-index: 512;
+}
+
+.rulerArea canvas {
+  background: linear-gradient(to bottom, #EFEFEF 0%,#bbb 56%,#999 57%,#eee 100%);
+  fill: #fff;
+  height: 100%;
+}
+
+.backgroundSectionOccluder {
+  background: linear-gradient(to bottom, #000 0%, #000 30%, #4AFF00 90%, #4AFF00 100%);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: TRACKDESCRIPTOR_TOTAL_LENGTH;
+}
+
+.playLineContainer {
+  left: TRACKDESCRIPTOR_TOTAL_LENGTH;
+  position: fixed;
+  top: 0;
+}
+
+.trackPanel {
+  position: relative;
+}
+
+.trackEntriesContainer {
+  display: block;
+}
+
+.trackLineDrawer {
+  left: TRACKDESCRIPTOR_TOTAL_LENGTH;
+  position: fixed;
+  top: 0;  
+}
+
+.trackAreaLineWidgetContainer, .trackAreaLineWidgetContainer canvas {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.trackAreaLineWidgetContainer canvas {
+  background: linear-gradient(to bottom, #eee 70%, #505050 90%, #000 100%);
+}
+
+.trackDescriptorsContainer {
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: TRACKDESCRIPTOR_TOTAL_LENGTH;
+  z-index: 256;
+}
+
+.singleTrackEntryContainer {
+  white-space: nowrap;
+}
+
+/** This exists just so the CSS names get compiled. */
+.trackButtonsContainer, .trackMuteButton, .trackSoloButton, .clipDetectorWidgetContainer, .buttonText {
+  visibility: visible;
+}
+
+@def DARK_TRACK_DESCRIPTOR_BOX_GRADIENT linear-gradient(to bottom, #222 0%,#000 100%);
+
+.trackDescriptorBox {
+  background: DARK_TRACK_DESCRIPTOR_BOX_GRADIENT;
+  color: #FFCB0D;
+  display: inline-block;
+  padding: TRACK_DESCRIPTOR_PADDING;
+  position: relative;
+  vertical-align: top;
+  white-space: normal;
+  width: TRACK_DESCRIPTOR_WIDTH;
+  z-index: 500;
+}
+
+@def TRACK_TITLE_DISPLAY_PADDING 3px;
+@def FX_BUTTON_LINE_HEIGHT 15px;
+@def FX_BUTTON_WIDTH 26px;
+@def FX_BUTTON_HEIGHT 23px;
+@def FX_BUTTON_BORDER_RADIUS 3px;
+
+@def ACTIVE_BUTTON_BACKGROUND_GRADIENT linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%,rgba(114,170,0,1) 51%,rgba(158,203,45,1) 100%);
+
+.trackTitleDisplay {
+  background: linear-gradient(to bottom, #444 0%, #111 100%);
+  border: none;
+  border-radius: FX_BUTTON_BORDER_RADIUS;
+  color: #bdff44; /** A lime color. */
+  height: 18px;
+  margin-bottom: 3px;
+  outline: none;
+  overflow: hidden;
+  padding: TRACK_TITLE_DISPLAY_PADDING;
+  text-overflow: ellipsis;
+  width: sub(TRACK_DESCRIPTOR_WIDTH, add(add(mult(TRACK_TITLE_DISPLAY_PADDING, 2), FX_BUTTON_WIDTH), 3px));
+}
+
+.backgroundElement {
+  border-radius: FX_BUTTON_BORDER_RADIUS;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@def FX_BUTTON_TOP 5px;
+@def FX_BUTTON_RIGHT 4px;
+.fxButton {
+  display: inline-block;
+  width: FX_BUTTON_WIDTH;
+  height: FX_BUTTON_HEIGHT;
+  line-height: FX_BUTTON_LINE_HEIGHT;
+  background: rgba(255,255,255,0.6);
+  padding: 0;
+  border-radius: 3px;
+  color: #000;
+  position: absolute;
+  top: FX_BUTTON_TOP;
+  right: FX_BUTTON_RIGHT;
+  cursor: pointer;
+  text-align: center;
+}
+
+.fxButton .backgroundElement {
+  background: ACTIVE_BUTTON_BACKGROUND_GRADIENT;
+  height: 100%;
+  opacity: 0;
+  transition-duration: 0.3s;
+  width: FX_BUTTON_WIDTH;
+}
+
+.hoverableApplication .fxButton:hover .backgroundElement {
+  opacity: 1;
+}
+
+@def FX_BUTTON_HAS_EFFECTS_BORDER_WIDTH 4px;
+.fxAppearButtonHasEffects {
+  border: FX_BUTTON_HAS_EFFECTS_BORDER_WIDTH solid #bdff44; /** A light lime. */
+  top: sub(FX_BUTTON_TOP, FX_BUTTON_HAS_EFFECTS_BORDER_WIDTH);
+  right: sub(FX_BUTTON_RIGHT, FX_BUTTON_HAS_EFFECTS_BORDER_WIDTH);
+}
+
+.fxButton .textContent {
+  left: 50%;
+  position: relative;
+  top: 50%;
+  transform: CENTER_TRANSFORM;
+  -webkit-transform: CENTER_TRANSFORM;
+}
+
+.effectChipsAltererWrapper {
+  left: add(TRACKDESCRIPTOR_TOTAL_LENGTH, 5px);
+  position: absolute;
+  top: divide(TRACK_DESCRIPTOR_PADDING, 2);
+}
+
+@def EFFECT_CHIP_ALTERER_HEIGHT 20px;
+@def EFFECT_CHIP_ALTERER_PADDING 5px;
+.effectChipAlterer {
+  height: EFFECT_CHIP_ALTERER_HEIGHT;
+  background: rgba(0,0,0,0.8);
+  border-radius: 3px;
+  padding: EFFECT_CHIP_ALTERER_PADDING 0 EFFECT_CHIP_ALTERER_PADDING EFFECT_CHIP_ALTERER_PADDING;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.effectChip.chipForHighlightedEffect {
+  background: #fff;
+  box-shadow: 0px 0px 6px 3px #bdff44; /** A light lime. */
+}
+
+.undisplayedElement {
+  display: none;
+}
+
+.newEffectButton {
+  font-weight: bold;
+  font-size: 18px;
+  height: EFFECT_CHIP_ALTERER_HEIGHT;
+  line-height: 14px;
+  vertical-align: top;
+  width: EFFECT_CHIP_ALTERER_HEIGHT;
+}
+
+.effectChipContainer {
+  display: inline-block;
+  height: 100%;
+  padding: 0 mult(EFFECT_CHIP_ALTERER_PADDING, 3) 0 0;
+}
+
+.dragger {
+  opacity: 0.6;
+}
+
+.genericButton {
+  background: rgba(255,255,255,0.8);
+  border-radius: 3px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+
+.genericButton .backgroundElement {
+  background: ACTIVE_BUTTON_BACKGROUND_GRADIENT;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition-duration: 0.3s;
+  width: 100%;
+}
+
+.hoverableApplication .genericButton:hover .backgroundElement {
+  opacity: 1;
+}
+
+.genericButton .textContent {
+  left: 50%;
+  position: relative;
+  top: 50%;
+  transform: CENTER_TRANSFORM;
+  -webkit-transform: CENTER_TRANSFORM;
+}
+
+@def LIGHT_YELLOW_GRADIENT linear-gradient(to bottom,rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%);
+@def EFFECT_CHIP_PADDING 3px;
+.effectChip {
+  background: LIGHT_YELLOW_GRADIENT;
+  border-radius: 4px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  height: sub(EFFECT_CHIP_ALTERER_HEIGHT, mult(EFFECT_CHIP_PADDING, 2));
+  margin-left: 3px;
+  padding: EFFECT_CHIP_PADDING;
+  white-space: nowrap;
+  z-index: 2096; /** The footer has a z-index of 2048. */
+}
+
+@def VERTICAL_CENTER_TRANSFORM translate(0,-50%);
+.effectChipMainContent {
+  display: inline-block;
+  margin-left: 2px;
+  position: relative;
+  top: 50%;
+  transform: VERTICAL_CENTER_TRANSFORM;
+  -webkit-transform: VERTICAL_CENTER_TRANSFORM;
+}
+
+.removeEffectChipButton {
+  border-radius: 50%;
+  bottom: 2px;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  height: 16px;
+  line-height: 16px;
+  position: relative;
+  text-align: center;
+  width: 16px;
+}
+
+@def REMOVE_EFFECT_CHIP_BUTTON_FONT_SIZE 13px;
+.removeEffectChipButton .textContent {
+  font-size: REMOVE_EFFECT_CHIP_BUTTON_FONT_SIZE;
+  height: REMOVE_EFFECT_CHIP_BUTTON_FONT_SIZE;
+  line-height: REMOVE_EFFECT_CHIP_BUTTON_FONT_SIZE;
+}
+
+.effectChipFullName {
+  text-transform: capitalize;
+}
+
+.effectChipAbbreviation {
+  display: none;
+  text-transform: uppercase;
+}
+
+.effectModelSelectionList {
+  background: #ccc;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 7px;
+  max-height: 200px;
+  width: 100%;
+}
+
+.effectModelSelectionList li {
+  background: LIGHT_YELLOW_GRADIENT;
+  color: #000;
+  cursor: pointer;
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  transition-duration: 0.24s;
+  width: 85%;
+}
+
+.effectModelSelectionList li .filterNamePortion {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.effectModelSelectionList li .filterNamePortion:after {
+  content: ': ';
+}
+
+.hoverableApplication .effectModelSelectionList li:hover {
+  background: DARK_GRADIENT;
+  color: #bdff44; /** A light lime. */
+}
+
+.trackAudioArea {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.trackAudioRowsContainer {
+  left: TRACKDESCRIPTOR_TOTAL_LENGTH;
+  top: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
+@def TRACK_BUTTON_BORDER_RADIUS 3px;
+
+.trackButton {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: TRACK_BUTTON_BORDER_RADIUS;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 3px;
+  padding: 3px 1px;
+  position: relative;
+  text-align: center;
+  width: 46px;
+}
+
+.activeTrackButton, .hoverableApplication .trackButton:hover {
+  background: ACTIVE_BUTTON_BACKGROUND_GRADIENT;
+}
+
+.trackDeleteButton {
+  font-weight: normal;
+  margin-right: 0;
+}
+
+.trackAudioArea, .masterFxButton {
+  font-style: normal;
+}
+
+.trackDescriptorBox input[type=range] {
+  margin: 0;
+  padding: 0;
+}
+
+.trackWaveformDisplay {
+  min-width: 800px;
+  position: relative;
+}
+
+.trackEnvelopeArea {
+  display: block;
+}
+
+/** CSS for various items in the track descriptor. */
+
+.trackVolumeControllerContainer, .volumeSliderContainer, .trackPanControllerContainer, .panSliderContainer {
+  font-style: normal;
+}
+
+/** CSS for widgets on the bottom of the left side of the track panel. */
+
+@def BUTTON_HEIGHT 30px;
+@def BUTTON_RADIUS 5px;
+@def BUTTON_WIDTH divide(TRACK_DESCRIPTOR_WIDTH, 2);
+@def DARK_GRADIENT linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+
+.trackLeftSideBottomButtons {
+  margin: 10px 0;
+  position: relative;
+  text-align: center;
+  width: TRACKDESCRIPTOR_TOTAL_LENGTH;
+}
+
+.trackLeftBottomWidget {
+  background: rgba(255,255,255,0.6);
+  border-radius: BUTTON_RADIUS;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: normal;
+  height: BUTTON_HEIGHT;
+  margin-right: 3px;
+  padding: 0;
+  position: relative;
+  width: BUTTON_WIDTH;
+}
+
+.trackLeftBottomWidget:last-child {
+  margin-right: 0;
+}
+
+.trackLeftBottomWidget .backgroundElement {
+  background: DARK_GRADIENT;
+  border-radius: BUTTON_RADIUS;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition-duration: 0.3s;
+  width: 100%;
+}
+
+.hoverableApplication .trackLeftBottomWidget:hover {
+  color: #bdff44; /** A lime color */ 
+}
+
+.hoverableApplication .trackLeftBottomWidget:hover .backgroundElement {
+  opacity: 1;
+}
+
+@def CENTERED_TRANSLATION translate(-50%,-50%);
+
+.trackLeftBottomWidget .contentContainer {
+  left: 50%;
+  position: relative;
+  top: 50%;
+  text-align: center;
+  transform: CENTERED_TRANSLATION;
+  -webkit-transform: CENTERED_TRANSLATION;
+}
+
+/** Handles special effects for muted or solo-ed tracks during audio play. */
+
+.trackEntriesContainer.soloedState .trackAudioArea,
+.trackEntriesContainer .trackAudioArea.mutedState {
+  opacity: 0.4;
+}
+
+.trackEntriesContainer.soloedState .trackAudioArea.soloedTrack {
+  opacity: 1;
+}
+
+@def FAINT_GREY_GRADIENT linear-gradient(to bottom,#777 0%,#555 100%);
+
+.trackEntriesContainer.soloedState .trackDescriptorBox,
+.trackEntriesContainer .trackDescriptorBox.mutedState {
+  background: FAINT_GREY_GRADIENT;
+}
+
+.trackEntriesContainer.soloedState .trackDescriptorBox.soloedTrack {
+  background: DARK_TRACK_DESCRIPTOR_BOX_GRADIENT;
+}
+
+/** This CSS produces effects that allow tracks to slide in and out. */
+
+.hiddenTrack {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.transitioningTrack {
+  transition-duration: 0.2s;
+}
+
+/**
+ * CSS for mixer mode.
+ */
+
+.all.mixerViewOn .trackPanel .backgroundSectionOccluder {
+  width: 100%;
+}
+
+.all.mixerViewOn .trackPanel .singleTrackEntryContainer {
+  float: left;
+  width: TRACKDESCRIPTOR_TOTAL_LENGTH;
+}
+
+.all.mixerViewOn .rulerAreaContainer {
+  visibility: hidden;
+}
+
+.all.mixerViewOn .playLineContainer {
+  visibility: hidden;
+}

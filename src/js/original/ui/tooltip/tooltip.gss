@@ -1,0 +1,18 @@
+.toolTipContainer {
+  background: rgba(37, 127, 0, 0.95);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  opacity: 0;
+  padding: 13px;
+  position: fixed;
+  transition-duration: 0.2s;
+  width: 200px;
+  z-index: -100;
+}
+
+/** Make this ahead of all else. */
+.visibleTooltip {
+  opacity: 1;
+  z-index: 2000000;
+}

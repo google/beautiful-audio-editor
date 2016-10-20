@@ -1,0 +1,17 @@
+{
+  "name": "Beautiful Audio Editor",
+  "description": "A multi-track audio editor for Desktop and mobile. Make podcasts, mixes, and more.",
+  "launch_path": "/app",
+  "developer": {
+    "name": "Beautifulware",
+    "url": "https://beautifulaudioeditor.appspot.com"
+  },
+  "default_locale": "en",
+  "chrome": {
+    "navigation": false
+  },
+  "icons": {
+    "512": "/images/icon512.png",
+    "128": "/images/icon128.png"
+  }
+}

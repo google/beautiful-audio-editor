@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{# Prevent the helper panel from appearing by overriding it. #}
+{% block helperPanelContainer %}{% endblock helperPanelContainer %}
+
+{% block mainContent %}
+
+<div id='tagline'>
+  Edit audio anywhere.
+</div>
+
+<div id='bragList'>
+  <div class='bragEntry'>
+    <div class='bragFirst'>
+      <img src='/images/featuresPreview.png' alt='Robust features.'>
+    </div>
+    <div class='bragSecond'>
+      <h2>An experimental audio editor.</h2>
+      <p>
+        {# Link to documentation on envelopes so laymen know what they are. #}
+        Copy. Snip. Pan. Record. Flexibly fade volume with <a href='/docs#volumeEnvelopes'>envelopes</a>.
+        Apply and move effects (filters, compression, etc.) amongst tracks. And more.
+      </p>
+      <p>
+        Edit while playing for quick feedback.
+      </p>
+      <h2>Works online or offline.</h2>
+      <p>
+        Create and organize projects in <a href='http://drive.google.com'>Google Drive</a>.
+        Edit projects anywhere within <a href='https://www.google.com/chrome/browser/'>Chrome</a> or
+        <a href='https://www.mozilla.org/'>Firefox</a>.
+      </p>
+      <p>
+        Store projects online or offline (in a local file to load later).
+      </p>
+    </div>
+    <div class='clearer'></div>
+  </div>
+</div>
+
+{% endblock mainContent %}

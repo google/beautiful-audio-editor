@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{# Prevent the helper panel from appearing by overriding it. #}
+{% block helperPanelContainer %}{% endblock helperPanelContainer %}
+
+{% block mainContent %}
+
+<h1>About Us</h1>
+
+<p>
+  We seek people passionate about sound or coding to help shape and develop beautiful audio editor.
+</p>
+
+<p>
+  {# TODO(chizeng): Include email. #}
+  Lets <a href='/submitFeedback'>converse via email</a>. Talking in third person feels odd.
+</p>
+
+{% endblock mainContent %}

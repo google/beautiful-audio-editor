@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{# Prevent the helper panel from appearing by overriding it. #}
+{% block helperPanelContainer %}{% endblock helperPanelContainer %}
+
+{% block mainContent %}
+
+<h1>Give us input.</h1>
+
+<p>
+  Please email us directly: <a href='mailto:davidfauxfireflies@gmail.com'>davidfauxfireflies@gmail.com</a>.
+</p>
+
+<p>
+  We welcome negative and positive input. And hellos.
+</p>
+<!-- 
+<iframe class='pageEmbed' src='https://docs.google.com/forms/d/1kMF1yS4NTnFp43w3FXaFM3p4CT73Tdr3ioW113eOfB8/viewform?usp=send_form'>
+</iframe> -->
+{% endblock mainContent %}

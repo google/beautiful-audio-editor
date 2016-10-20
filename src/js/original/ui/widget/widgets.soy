@@ -1,0 +1,69 @@
+{namespace audioCat.ui.widget.templates}
+
+
+/**
+ * A slider widget.
+ * @param mainLabel The main slider label.
+ * @param leftLabel The label for the left side of the label.
+ * @param rightLabel The label for the right side of the label.
+ * @param initialStateValue The initial value of the state.
+ * @param initialSliderValue The initial slider DOM value.
+ * @param minSliderValue The min slider DOM value.
+ * @param maxSliderValue The max slider DOM value.
+ */
+{template .SliderWidget}
+<div class='{css sliderWidgetContainer}'>
+  <span class='{css sliderLeftLabel}'>{$leftLabel}</span>
+
+  <div class='{css sliderLabelAndValueContainer}'>
+    <span class='{css sliderLabel}'>{$mainLabel}: </span>
+    <span class='{css sliderValueContainer}'>{$initialStateValue}</span>
+  </div>
+
+  <span class='{css sliderRightLabel}'>{$rightLabel}</span>
+  <br>
+
+  <input class='{css sliderInputElement}' type='range' min='{$minSliderValue}' max='{$maxSliderValue}' value='{$initialSliderValue}'>
+</div>
+{/template}
+
+
+/**
+ * The dialog box for manually inputting the state value of a slider.
+ * @param mainLabel The main slider label.
+ * @param minStateValue The minimum state value.
+ * @param maxStateValue The maximum state value.
+ * @param currentStateValue The current state value.
+ */
+{template .SliderWidgetValueDialog}
+<div class='{css sliderDialogContainer}'>
+  <h3>{$mainLabel}</h3>
+  <form class='{css sliderDialogForm}' method='get'>
+    <div class='{css messageBoxContainer}'>
+      <div class='{css warningBox}'></div>
+      <div class='{css successBox}'></div>
+    </div>
+    <div class='{css extremeDialogSegment}'>
+      <span class='{css extremeDialogSegmentDefinition}'>Minimum</span>
+      <span class='{css extremeDialogSegmentValue}'>{$minStateValue}</span>
+    </div>
+    <div class='{css extremeDialogSegment}'>
+      <span class='{css extremeDialogSegmentDefinition}'>Maximum</span>
+      <span class='{css extremeDialogSegmentValue}'>{$maxStateValue}</span>
+    </div>
+    <input type='text' value='{$currentStateValue}' class='{css sliderDialogInputElement}'>
+    <input type='submit' value='submit'>
+  </form>
+</div>
+{/template}
+
+
+/**
+ * Play Widget.
+ */
+{template .PlayWidget}
+<div class='{css playWidgetContainer}'>
+  <div class='{css playWidgetButton} {css defaultAudioSourceRecordButton}'>&#9679;</div>
+  <div class='{css defaultRecordingTimeDisplay}'></div>
+</div>
+{/template}

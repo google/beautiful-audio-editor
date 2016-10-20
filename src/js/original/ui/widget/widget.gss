@@ -1,0 +1,264 @@
+/** Contains CSS for widgets. */
+
+.sliderWidgetContainer {
+  position: relative;
+}
+
+@def CENTER_TRANSLATE translate(-50%,0);
+
+.sliderLabelAndValueContainer {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: CENTER_TRANSLATE;
+  -webkit-transform: CENTER_TRANSLATE;
+  width: 100%;
+}
+
+.sliderLabel {
+  color: #bdff44; /** A light, lime-ish green. */
+}
+
+.sliderLeftLabel {
+  visibility: visible;
+}
+
+.sliderRightLabel {
+  display: inline-block;
+  float: right;
+}
+
+.sliderInputElement {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.sliderValueContainer {
+  border-bottom: 2px solid #bdff44; /** A light, lime-ish green. */
+  color: #FFCB0D; /** Light orange. */
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sliderDialogForm input[type=submit]  {
+  height: 0;
+  overflow:hidden;
+  visibility: hidden;
+  width: 0;
+}
+
+.zoomWidgetContainer {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  width: 200px;
+}
+
+.mobileZoomWidgetContainer {
+  width: 140px;
+}
+
+/** CSS for the slider dialog. */
+
+.extremeDialogSegment {
+  margin-top: 10px;
+}
+
+.extremeDialogSegmentDefinition {
+  display: inline-block;
+  width: 110px;
+}
+
+.extremeDialogSegmentValue:before {
+  content: ": ";
+}
+
+.dialogOuterWrapper input.sliderDialogInputElement[type=text] {
+  margin-top: 10px;
+}
+
+/** CSS for the play pointer. */
+
+@def PLAY_POINTER_WIDTH 20px;
+
+.playPointer {
+  border-left: PLAY_POINTER_WIDTH solid transparent;
+  border-right: PLAY_POINTER_WIDTH solid transparent;
+  border-top: PLAY_POINTER_WIDTH solid rgba(32, 93, 0, 0.6); /** A green to match line. */
+  bottom: 0;
+  cursor: pointer;
+  height: 0;
+  margin-left: mult(PLAY_POINTER_WIDTH, -1); 
+  position: absolute;
+  width: 0;
+}
+
+.undisplayed {
+  display: none;
+}
+
+.currentTimeContainer {
+  background: rgba(189, 255, 68, 0.86);
+  border: 1px solid #000;
+  color: #000;
+  left: 50%;
+  border-radius: 3px;
+  padding: 3px;
+  position: absolute;
+  top: mult(add(PLAY_POINTER_WIDTH, 23px), -1);
+  transform: translate(-50%,0);
+  -webkit-transform: translate(-50%,0);
+}
+
+.playLine {
+  background: #205D00; /** A dark green for contrast. */
+  height: 100%;
+  left: 0;
+  min-height: 100px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+/** CSS for the frequency analyser widget. */
+
+/** CSS for Live Frequency Analyser */
+
+@def CANVAS_BORDER_WIDTH 2px;
+@def CANVAS_CSS_HEIGHT 120px;
+
+.frequencyAnalyserChart .frequencyAnalyserTitle {
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+.frequencyAnalyserChart .frequencyAnalyserTitle {
+  margin: 0 0 5px 0;
+}
+
+.frequencyAnalyserChart .leftLabel {
+  float: left;
+}
+
+.frequencyAnalyserChart .rightLabel {
+  float: right;
+}
+
+.frequencyAnalyserChart .canvasContainer {
+  height: CANVAS_CSS_HEIGHT;
+  margin: 5px 0 10px 0;
+  position: relative;
+}
+
+.frequencyAnalyserChart .canvasContainer canvas {
+  display: inline-block;
+  height: CANVAS_CSS_HEIGHT;
+  left: CANVAS_BORDER_WIDTH;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.effectResponseCanvasContainer {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.frequencyAnalyserChart .canvasContainer .frequencyBarsCanvas {
+  border: CANVAS_BORDER_WIDTH solid #555;
+  border-width: 0 0 CANVAS_BORDER_WIDTH CANVAS_BORDER_WIDTH;
+  left: 0;
+}
+
+/** CSS related to clipping bars. */
+
+@def CLIPPING_BAR_BORDER_WIDTH 1px;
+.clippingBarWidgetContainer {
+  border: CLIPPING_BAR_BORDER_WIDTH solid #ccc;
+  height: 5px;
+  margin: 5px 0 0 mult(CLIPPING_BAR_BORDER_WIDTH, -1);
+  position: relative;
+  width: 100%;
+}
+
+.clippingBarWidgetColoredSection {
+  position: absolute;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  height: 100%;
+  width: 100%;
+}
+
+/** CSS related to the recording widget. */
+
+.defaultAudioSourceRecordButton {
+  font-style: normal;
+  overflow: hidden;
+}
+
+/** CSS related to the loading widget. */
+
+.loadingWidgetOuterContainer {
+  width: 100%;
+}
+
+.loadingWidgetInnerContainer {
+  background: url('../images/loadingBackground.gif') repeat;
+  opacity: 0.92;
+  width: 0;
+}
+
+.loadingWidgetOuterContainer, .loadingWidgetInnerContainer {
+  border-radius: 10px;
+  height: 100%;
+}
+
+.disabledToolbarItem.unfadableItem, .hoverableApplication .disabledToolbarItem.unfadableItem:hover {
+  background: #555;
+}
+
+.horizontalScrollWidgetContainer {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.scrollInput {
+  width: 95%;
+}
+
+/** CSS for the boolean toggle widget. */
+
+.inputDeviceWidget {
+  background: rgba(0, 120, 0, 0);
+  border-radius: 10px;
+  padding: 10px 3px;
+  transition: background 0.31s;
+}
+
+.checkboxWrapper {
+  margin-right: 10px;
+}
+
+.checkboxWrapper, .checkboxDescriptionWrapper {
+  display: inline;
+}
+
+.selectionInputWrapper {
+  text-align: right;
+}
+
+.selectionDescriptionWrapper {
+  float: left;
+}
+
+.backgroundAnimatingContainer {
+  background: rgba(0, 120, 0, 1);
+}

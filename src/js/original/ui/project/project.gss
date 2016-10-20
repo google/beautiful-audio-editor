@@ -1,0 +1,23 @@
+/**
+ * CSS related to project title / other display of meta data.
+ */
+
+@def PROJECT_TITLE_BACKGROUND_TRANSITION background 0.3s;
+
+.projectTitleTextInput {
+  background: #333;
+  border-radius: 5px;
+  color: #bdff44; /** A light green. */
+  display: inline-block;
+  font-size: 120%;
+  margin-bottom: 3px;
+  outline: none;
+  padding: 3px;
+  transition: PROJECT_TITLE_BACKGROUND_TRANSITION;
+  -webkit-transition: PROJECT_TITLE_BACKGROUND_TRANSITION;
+  white-space: nowrap;
+}
+
+.savingBackgroundState {
+  background: #008000;
+}

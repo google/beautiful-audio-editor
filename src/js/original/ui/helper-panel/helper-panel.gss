@@ -1,0 +1,81 @@
+/**
+ * CSS related to the helper panel.
+ */
+
+@def HELPER_PANEL_WIDTH 250px;
+@def HELPER_PANEL_PADDING 5px;
+@def HELPER_PANEL_TOTAL_LENGTH add(HELPER_PANEL_WIDTH, mult(HELPER_PANEL_PADDING, 2)); 
+@def BLACK_GREEN_GRADIENT linear-gradient(to bottom,#000 0%,#111 80%,#006400 99%,#006400 100%);
+
+.rightPanel {
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 4096;
+}
+
+.helperPanel {
+  background: BLACK_GREEN_GRADIENT;
+  -webkit-box-shadow: 0 0 20px 8px #000;
+  -moz-box-shadow: 0 0 20px 8px #000;
+  box-shadow: 0 0 20px 8px #000;
+  height: 100%;
+  opacity: 0;
+  overflow: scroll;
+  padding: HELPER_PANEL_PADDING;
+  position: absolute;
+  right: mult(HELPER_PANEL_TOTAL_LENGTH, -1);
+  top: 0;
+  transition-duration: 0.3s;
+  width: HELPER_PANEL_WIDTH;
+}
+
+.helperPanel.shown {
+  opacity: 1;
+  right: 0;
+}
+
+.helperPanel .closeButton {
+  text-align: right;
+}
+
+.helperPanel .closeButtonInner {
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+  text-transform: capitalize;
+  transition-duration: 0.3s;
+}
+
+.hoverableApplication .helperPanel .closeButtonInner:hover, .helperPanel .closeButtonInner:active {
+  background: #555;
+  color: #fff;
+}
+
+@def LIME_COLOR #bdff44;
+
+.helperPanel .helperPanelTitle {
+  border-bottom: 3px dashed LIME_COLOR;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.helperPanel .contentContainer {
+  padding-bottom: 15px;
+}
+
+.helperPanel .innerContent .displayable {
+  margin: 0 0 10px 0;
+}
+
+.helperPanel .helperPanelAddendumText {
+  color: LIME_COLOR;
+}
+
+/** CSS Specific to the Master Settings Helper Panel */
+
+.masterSettingsHelperPanel .frequencyAnalyserChart {
+  margin-top: 20px;
+}

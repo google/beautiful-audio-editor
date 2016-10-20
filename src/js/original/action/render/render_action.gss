@@ -1,0 +1,7 @@
+/**
+ * CSS Pertaining to Rendering-related Actions
+ */
+
+.wavExportDoneDialog .valuePortion {
+  font-weight: bold;
+}

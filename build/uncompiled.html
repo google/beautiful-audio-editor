@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='css/debug.css'>
+    <link rel='icon' type='image/x-icon' href='/images/favicon.ico'>
+    <script src="../third_party/closure_library/closure/goog/base.js"></script>
+    <script src="js/deps.js"></script>
+    <script>
+      goog.require('audioCat.app.App');
+      goog.require('audioCat.state.Project');
+      goog.require('audioCat.utility.DomHelper');
+      goog.require('goog.dom');
+    </script>
+  </head>
+  <body>
+    <script>
+      (function() {
+        var domHelper = new audioCat.utility.DomHelper();
+        new audioCat.app.App(
+            domHelper,
+            new audioCat.state.Project()).render(
+                /** @type {!Element} */ (domHelper.getDocument().body));
+      })();
+    </script>
+  </body>
+</html>

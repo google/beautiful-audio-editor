@@ -1,0 +1,48 @@
+application: beautifulaudioeditor
+version: bronn
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /(cache\.mf)
+  static_files: static/\1
+  mime_type: text/cache-manifest
+  upload: static/cache.mf
+
+- url: /css
+  static_dir: static/css
+
+- url: /images
+  static_dir: static/images
+  expiration: '5d'
+
+- url: /js
+  static_dir: static/js
+
+- url: /media
+  static_dir: static/media
+  expiration: "7d 0h"
+
+- url: /webview-files/(mobile_cache\.mf)
+  static_files: static/webview-files/\1
+  mime_type: text/cache-manifest
+  upload: static/webview-files/mobile_cache.mf
+
+- url: /webview-files
+  static_dir: static/webview-files
+
+- url: /(ff\.webapp)
+  static_files: static/\1
+  mime_type: application/x-web-app-manifest+json
+  upload: static/ff.webapp
+
+- url: /.*
+  script: server.app
+  secure: always
+
+libraries:
+- name: jinja2
+  version: latest
+- name: webapp2
+  version: latest

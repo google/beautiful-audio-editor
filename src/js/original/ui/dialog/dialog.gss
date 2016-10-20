@@ -1,0 +1,139 @@
+/** Contains CSS related to dialogs. */
+
+@def BACKGROUND_SHIELD_Z_INDEX 8192;
+@def DIALOG_Z_INDEX add(BACKGROUND_SHIELD_Z_INDEX, 512);
+
+@def SUCCESS_COLOR #0d0;
+@def WARNING_COLOR #f00;
+
+.backgroundShield {
+  background: rgba(255, 255, 255, 0.6);
+  left: 0;
+  position: fixed;
+  top: 0;
+  z-index: BACKGROUND_SHIELD_Z_INDEX;
+}
+
+@def DIALOG_BORDER_RADIUS 20px;
+@def CENTERED_TRANSLATION translate(-50%,-50%);
+
+.dialogOuterWrapper {
+  background: #fff;
+  border: 10px solid rgba(0, 0, 0, 0.6);
+  border-radius: DIALOG_BORDER_RADIUS;
+  color: #000;
+  font-size: 18px;
+  left: 50%;
+  max-width: 95%;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  transform: CENTERED_TRANSLATION;
+  -webkit-transform: CENTERED_TRANSLATION;
+  width: 600px;
+  z-index: DIALOG_Z_INDEX;
+}
+
+.dialogOuterWrapper h1, .dialogOuterWrapper h2, .dialogOuterWrapper h3, .dialogOuterWrapper h4 {
+  margin-top: 0;
+  padding-top: 0;
+}   
+
+.dialogInnerWrapper {
+  border-radius: DIALOG_BORDER_RADIUS;
+  min-height: 80px;
+  padding: 50px 0 0 0;
+  position: relative;
+}
+
+.dialogOuterWrapper h1, .dialogOuterWrapper h2 {
+  margin-top: 0;
+}
+
+.dialogOuterWrapper .dialogCancelButton {
+  border-color: WARNING_COLOR;
+  color: WARNING_COLOR;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.dialogOuterWrapper .messageBoxContainer {
+  display: block;
+}
+
+.dialogOuterWrapper .buttonWidget {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.hoverableApplication .dialogOuterWrapper .dialogCancelButton:hover {
+  background: #f00;
+  color: #fff;
+}
+
+.dialogOuterWrapper .successBox {
+  color: SUCCESS_COLOR;
+  padding: 0 0 10px 0;
+}
+
+.dialogOuterWrapper .warningBox {
+  color: WARNING_COLOR;
+  padding: 0 0 10px 0;
+}
+
+.dialogOuterWrapper .fileSelectorWidgetContainer {
+  margin: 0 0 10px 0;
+}
+
+.topBufferedDialog .innerContentWrapper {
+  padding: 50px 0 0 0;
+}
+
+.innerParagraphContent {
+  margin: 0 0 1em 0;
+}
+
+/** Form elements. */
+
+.dialogOuterWrapper  input[type=text] {
+  border-radius: 5px;
+  color: #333;
+  font-size: 20px;
+  line-height: 25px;
+  margin: 0 10px 0 0;
+  vertical-align: middle;
+  width: 100px;
+}
+
+.sliderDialogContainer input[type=text] {
+  margin-right: 80px;
+}
+
+.sliderButtonsArea {
+  margin-top: 10px;
+}
+
+/** CSS Related to Audio Import */
+
+.importAudioDialog .supportedListing {
+  color: #0b0; /** A dark green. */
+}
+
+.importAudioDialog .unsupportedListing  {
+  color: WARNING_COLOR;
+}
+
+.importAudioDialog .supportedListing, .importAudioDialog .unsupportedListing {
+  margin: 0 0 10px 0;
+}
+
+.importAudioDialog .audioUploadInputElement {
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+.catDiversionImage {
+  width: 200px;
+  margin-top: 10px;
+  border-radius: 10px;
+}

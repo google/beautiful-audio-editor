@@ -1,0 +1,73 @@
+/**
+ * Contains CSS for messages displayed to the user.
+ */
+
+@def HORIZONTAL_CENTERING_TRANSFORM translate(-50%,0);
+
+.messageDisplayerWidget {
+  left: 50%;
+  position: fixed;
+  text-align: center;
+  transform: HORIZONTAL_CENTERING_TRANSFORM;
+  -webkit-transform: HORIZONTAL_CENTERING_TRANSFORM;
+  top: 0;
+  z-index: 9000; /** Dialogs have z-indices of 8704. Messages are on top. */
+}
+
+.hiddenMessageDisplayerWidget {
+  top: -800px;
+}
+
+.messageDisplayerWidget .messageBox {
+  border: 1px solid #000;
+  border-width: 0 1px 1px 1px;
+  border-radius: 0 0 8px 8px;
+  display: inline-block;
+  opacity: 0;
+  padding: 10px;
+  position: relative;
+  transition-duration: 0.4s;
+  top: -40px;
+  z-index: -1;
+}
+
+.messageDisplayerWidget .messageBox.shown {
+  opacity: 1;
+  top: 0;
+  z-index: 9000;
+}
+
+.messageDisplayerWidget .dangerMessage .messageBox {
+  background: rgba(242, 222, 222, 0.9); /** A red-ish color. */
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.messageDisplayerWidget .warningMessage .messageBox {
+  background: rgba(252, 248, 227, 0.9); /** An orangish color. */
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+
+.messageDisplayerWidget .successMessage .messageBox {
+  background: rgba(223, 240, 216, 0.9); /** A greenish color. */
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+
+.messageDisplayerWidget .infoMessage .messageBox {
+  background: rgba(217, 237, 247, 0.9); /** A light blue. */
+  border-color: #bce8f1;
+  color: #31708f;
+}
+
+.messageDisplayerWidget .textContainer {
+  display: inline-block;
+}
+
+.messageDisplayerWidget .closeButton {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+}

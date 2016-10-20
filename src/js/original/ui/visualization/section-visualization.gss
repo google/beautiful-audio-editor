@@ -1,0 +1,97 @@
+.sectionVisualizationContainer {
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.sectionVisualizationCanvasContainer {
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 1);
+  display: inline-block;
+  left: 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+}
+
+.sectionVisualizationCanvasContainer canvas {
+  display: inline-block;
+}
+
+.movingSectionContainer {
+  cursor: grab;
+  opacity: 0.5;
+}
+
+.splitModeSection {
+  cursor: crosshair;
+}
+
+.sectionStartTimeDisplayer {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #111;
+  bottom: 0;
+  left: 0;
+  padding: 3px;
+  position: absolute;
+  transform: translate(0,100%);
+  -webkit-transform: translate(0,100%);
+}
+
+.sectionRemoveModeSection {
+  cursor: crosshair;
+}
+
+.duplicateSectionMode {
+  cursor: copy;
+}
+
+.lineMarkingTimeInSection {
+  background: #f00;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+
+.sectionBeginTimeIndicator {
+  background: rgba(204, 204, 204, 0.8);
+  border-radius: 5px;
+  color: #f00;
+  display: inline-block;
+  font-family: 'arial narrow';
+  left: 3px;
+  padding: 1px;
+  position: absolute;
+  top: 3px;
+  z-index: 2;
+}
+
+/** This CSS customizes the draggers that alter the speeds of sections. */
+@def SPEED_DRAGGER_WIDTH 10px;
+.sectionSpeedDragger {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 0 0 0 5px;
+  cursor: pointer;
+  display: none;
+  height: SPEED_DRAGGER_WIDTH;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: SPEED_DRAGGER_WIDTH;
+  z-index: 5;
+}
+
+/** Only display the speed dragger in the select edit mode. */
+[data-m="1"] .sectionSpeedDragger {
+  display: block;
+}
+
+.quickenedDragger {
+  background: #f00;
+}
+
+.slowedDragger {
+  background: #00f;
+}

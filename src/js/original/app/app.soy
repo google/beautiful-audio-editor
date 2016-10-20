@@ -1,0 +1,80 @@
+{namespace audioCat.app.templates}
+
+/**
+ * The main application layout.
+ */
+{template .mainApplication}
+  <div class='{css all}'>
+    <div class='{css header}'>
+      <div class='{css upperBar}'>
+        <div class='{css titleContainer}'></div>
+        <div class='{css utilityContainer}'></div>
+      </div>
+      <div class='{css menu-bar}'></div>
+      <div class='{css toolbarArea}'></div>
+    </div>
+    <div class={css headerOffsetter}></div>
+    <div class='{css midSection}'>
+      <div class='{css audioDisplaySection}'>
+        <div class='{css rulerAreaContainer}'>
+          <div class='{css rulerArea}'></div>
+        </div>
+        <div class='{css trackPanel}'>
+          <div class='{css trackLineDrawer}'></div>
+          <div class='{css trackEntriesContainer}'>
+            <div class='{css backgroundSectionOccluder}'></div>
+          </div>
+          <div class='{css playLineContainer}'></div>
+          <div class='{css trackLeftSideBottomButtons}'></div>
+        </div>
+      </div>
+    </div>
+    <div class='{css footer}'>
+      <div class='{css footerLeftSide}'></div>
+      <div class='{css playWidgetContainerWrapper}'></div>
+      <div class='{css masterClipDetectorWidgetContainerWrapper}'></div>
+    </div>
+    <div class='{css rightPanel}'></div>
+  </div>
+{/template}
+
+/**
+ * The tutorial layout.
+ */
+{template .tutorial}
+  <div class='{css tutorial}'>
+    <div>
+      Beautiful Audio Editor runs on the Web Audio API. For starters, try
+    </div>
+
+    <div>
+      <div class='{css todoEntry}'>
+        <img src='/images/playButton.png'>
+        clicking the play button,
+      </div>
+
+      <div class='{css todoEntry}'>
+        <img src='/images/soloing.png'>
+        solo-ing individual channels,
+      </div>
+
+      <div class='{css todoEntry}'>
+        <img src='/images/volumeControlPoints.png'>
+        controlling volume,
+      </div>
+      
+      <div class='{css todoEntry}'>
+        <img src='/images/recordingVoice.png'>
+        and recording your voice.
+      </div>
+    </div>
+
+    <div>
+      Thank you to <a href='http://hoch.io' target='_blank'>Hongchan</a>  for the mix.
+    </div>
+
+    <div>
+      <a href='#' class='{css kButton}'>Begin</a>
+    </div>
+  </div>
+{/template}

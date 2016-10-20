@@ -1,0 +1,72 @@
+/**
+ * Contains CSS related to master UI elements.
+ */
+
+@def FOOTER_MAIN_BUTTON_PADDING 10px;
+@def FOOTER_LIGHT_COLOR #bdff44; /** A lime color. */
+@def MASTER_BUTTON_BORDER_RADIUS 5px;
+@def BUTTON_TRANSITION_DURATION 0.3s;
+
+.masterController {
+  color: #000;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.footerMainButton {
+  background: rgba(255,255,255,0.6);
+  border-radius: MASTER_BUTTON_BORDER_RADIUS;
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: FOOTER_MAIN_BUTTON_PADDING;
+  position: relative;
+  transition-duration: BUTTON_TRANSITION_DURATION;
+}
+
+.footerMainButton .backgroundElement {
+  background: linear-gradient(to bottom,rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%);
+  border-radius: MASTER_BUTTON_BORDER_RADIUS;
+  cursor: pointer;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  transition-duration: BUTTON_TRANSITION_DURATION;
+  top: 0;
+  width: 100%;
+}
+
+.hoverableApplication .footerMainButton:hover {
+  color: FOOTER_LIGHT_COLOR;
+}
+
+.hoverableApplication .footerMainButton:hover .backgroundElement {
+  opacity: 1;
+}
+
+.footerMainButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.masterController .effectChipAlterer {
+  border: 2px solid FOOTER_LIGHT_COLOR;
+  position: absolute;
+  top: -45px;
+}
+
+/** Position the mobile master effect chip alterer a bit higher to make room
+ * for the self-implemented horizontal scroll bar.
+ **/
+.masterController .effectChipAlterer.mobileEffectChipAlterer {
+  top: -55px;
+}
+
+.masterFxButton {}
+
+.masterController .fxAppearButtonHasEffects {
+  background: FOOTER_LIGHT_COLOR;
+  border: none;
+  top: 0;
+}

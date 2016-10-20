@@ -1,0 +1,38 @@
+/** Contains CSS for buttons. */
+
+@def BUTTON_FONT_SIZE 18px;
+
+.buttonWidget {
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: BUTTON_FONT_SIZE;
+  line-height: BUTTON_FONT_SIZE;
+  padding: 10px 18px;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.buttonWidget.dialogCancelButton {
+  margin: 0;
+}
+
+.dialogCancelButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@def TRANSITION_DURATION_BUTTON_HOVER 0.4s;
+
+.hoverableApplication .buttonWidget:hover {
+  background: #e6e6e6;
+  -webkit-transition-duration: TRANSITION_DURATION_BUTTON_HOVER; /* Safari */
+  transition-duration: TRANSITION_DURATION_BUTTON_HOVER;
+}

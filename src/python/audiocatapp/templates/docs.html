@@ -1,0 +1,468 @@
+{% extends 'base.html' %}
+
+{% block helperPanel %}
+
+<div id='tableOfContents'></div>
+
+{% endblock helperPanel %}
+
+{% block mainContent %}
+
+<div class='internallyLinkedContent'>
+  <h1>Documentation</h1>
+
+  <h2 id='createNewProject'>Creating a New Project</h2>
+
+  <p>
+    After installing through Google Drive, create new audio projects stored in the cloud at
+    <a href='https://drive.google.com'>https://drive.google.com</a> by clicking
+    <em>New &rarr; More &rarr; Beautiful Audio Editor</em>.
+  </p>
+
+  <p class='imageParagraph'>
+    <img class='borderedImage' alt='Create a new project in Drive.' src='/images/driveNewProject.jpg'>
+  </p>
+
+  <p>
+    Also, through Beautiful Audio Editor, you could locally download a project as a .audioproject file through
+    <em>File &rarr; Save project to local file for later load.</em> to load into
+    the editor later through <em>File &rarr; Load project from local .audioproject.</em>.
+    This second flow of work could be desirable if you prefer to save data locally.
+    It enables you to reliably save work even without internet.
+  </p>
+
+  <h2 id='saveToGoogleDrive'>Save to Google Drive</h2>
+
+  <p>
+    You can save projects in Google Drive and thus store them in the cloud.
+  </p>
+
+  <p>
+    To do that, first either open or create a new audio
+    project at <a href='https://drive.google.com/'>Google Drive</a>.
+  </p>
+
+  <p>
+    If your project is opened from Google Drive,
+    <em>Save project to Google Drive</em>
+    appears under the <em>File</em> menu. Additionally, the Save to Drive
+    button appears in the Service Toolbar:
+  </p>
+
+  <p class='imageParagraph'>
+    <img class='borderedImage' alt='Save to Google Drive.' src='/images/saveToGoogleDrive.jpg'>
+  </p>
+
+  <p>
+    This button is enabled when saving is meaningful (ie, you made changes since the last save).
+    Click on either of these features to save your project to Drive.
+  </p>
+
+  <h2 id='menuBar'>Menu Bar</h2>
+
+  <h3>File</h3>
+  <p>
+    <em>File &rarr; Import Audio</em> opens a dialog for importing audio files.
+    You can open the same dialog by clicking + Import in the track panel.
+  </p>
+
+  <p>
+    <em>File &rarr; Export as WAV file.</em> downloads the current project into a WAV file.
+    Solo-ed and muted tracks will be solo-ed and muted in the download.
+  </p>
+
+  <p>
+    <em>File &rarr; Save project to local file for later load.</em> saves the project into a .audioproject file that you
+    can later quickly upload back into the editor.
+  </p>
+
+  <p>
+    <em>File &rarr; Load project from local .audioproject.</em> opens a dialog that lets you load a previously saved project. This overrides any current work in your current audio editor tab and is not undo-able.
+  </p>
+
+  <h3>Edit</h3>
+
+  <p>
+    <em>Edit &rarr; Undo</em> undos the previous command if it exists.
+  </p>
+
+  <p>
+    <em>Edit &rarr; Redo</em> redos the previously undone command if it exists.
+    Note that redo-ing some commands and then performing some other command will wipe out 
+    the later command history.
+  </p>
+
+  <h3>Help</h3>
+
+  <p>
+    <em>Help &rarr; Open help docs in new window.</em> opens a new window with
+    documentation on how to use the editor (which you are perusing now).
+  </p>
+
+  <h2 id='Toolbars'>Toolbars</h2>
+
+  <h3>Play Toolbar</h3>
+
+  <table class='descriptionTable'>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/goToBeginning.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>reset</em> button resets the play pointer to the beginning and stops play.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/play.svg'>
+      <img src='/images/pause.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>play/pause</em> button plays or pauses audio at the current time. Click on the ruler or drag the play pointer to set time.
+    </td>
+  </tr>
+  </table>
+
+  <h3>Edit Mode Toolbar</h3>
+
+  <table class='descriptionTable'>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/selectMode.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>move</em> button switches into move mode, in which you can move sections within and across tracks by dragging them. Each section notes its begin time on the top left.
+      Overlapping sections within a track stack.
+      You can use the <i>Move Toolbar</i> to customize behavior while moving sections - you could snap to grid.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/duplicateSection.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>duplicate</em> button switches into duplicate mode, in which you can click sections to duplicate them.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/splitSectionMode.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>split</em> button switches into split-section mode, in which you can split sections by pressing on them and then releasing upon finalizing the split location.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/removeSectionMode.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>remove</em> button switches into remove mode, in which you can click sections to remove them.
+    </td>
+  </tr>
+  </table>
+
+  <h3>Move Toolbar</h3>
+
+  <table class='descriptionTable'>
+  <tr>
+    <td class='iconPreview'>
+      4 / 4
+    </td>
+    <td class='iconDescription'>
+      The <em>time signature</em> button makes the grid display in 4/4 time signature - 4 beats per 2 seconds.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/snapToGrid.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>snap to grid</em> button toggles whether the beginnings of sections snap to grid upon being moved in mode mode.
+      This button is only toggle-able in edit mode.
+    </td>
+  </tr>
+  </table>
+
+  <h3>Command Toolbar</h3>
+
+  <table class='descriptionTable'>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/undoItem.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>undo</em> button undos the previous action if it exists.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/redoItem.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>redo</em> button redoes the previously undone action if it exists.
+    </td>
+  </tr>
+  </table>
+
+  <h3>Render Toolbar</h3>
+
+  <table class='descriptionTable'>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/downloadWav.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>download WAV</em> button downloads the project as a WAV file.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/downloadMp3.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>download MP3</em> button downloads the project as an MP3 file.
+      MP3 exporting is slower than WAV exporting, but compresses audio, so MP3
+      files may be much smaller than their WAV counterparts.
+    </td>
+  </tr>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/renderToTrack.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>render</em> button renders the whole project into a separate track.
+    </td>
+  </tr>
+  </table>
+
+  <h3>Service Toolbar</h3>
+
+  <table class='descriptionTable'>
+  <tr>
+    <td class='iconPreview'>
+      <img src='/images/saveToGoogleDrive.svg'>
+    </td>
+    <td class='iconDescription'>
+      The <em>save to Google Drive</em> button appears only if you created or
+      opened a .audioproject file from the <a href='https://drive.google.com/'>Google Drive</a> website.
+
+      Click it to save your project to Google Drive and thus make it stored in the cloud.
+    </td>
+  </tr>
+  </table>
+
+  <h2 id='effects'>Effects</h2>
+
+  <p>
+    You can apply effects to tracks and the master output. Effects range from simple
+    ones such as gain, pan, and dynamic compression to varieties of frequency filters.
+  </p>
+
+  <p>
+    When you add an effect, a chip will appear in the effect box. The effect box will become highlighted, indicating the presence of at least 1 effect.
+  </p>
+
+  <p class='imageParagraph'>
+    <img alt='Effects.' src='/images/effects.jpg'>
+  </p>
+
+  <p>
+    Click on the X on the chip to remove an effect. Drag the chip around to swap effects.
+    You can even move an effect across tracks or to and from the master effect box.
+  </p>
+
+  <p>
+    To customize an effect, use the effect panel that surfaces when you click on an effect chip,
+    which highlights the chip. The effect panel also offers a live frequency spectrum of audio output from the track or master output.
+    If the effect is a filter, the filter response will be visualized on top of the spectrum.
+  </p>
+
+  <p class='imageParagraph'>
+    <img alt='Effects.' src='/images/effectPanel.jpg'>
+  </p>
+
+  <h2 id='varyingSpeed'>Varying Speed</h2>
+
+  <p>
+    You can only vary the speeds of audio sections while in the <a href='#Toolbars'>move edit mode</a>.
+    In move mode, vary the speed of a section by dragging the <em>speed dragger</em> at the top-right of the section.
+  </p>
+
+  <p>
+    The speed dragger will be
+  </p>
+
+  <p>
+    <em>black</em> when the current speed is equal to the original speed,<br>
+    <em style='color:#f00'>red</em> when the current speed is faster than the original speed,<br>
+    and <em style='color:#00f'>blue</em> when the current speed is slower than the original speed.
+  </p>
+
+  <p class='imageParagraph'>
+    <img alt='Speed matches that of original audio.' src='/images/speedDraggerDemo.jpg'>
+  </p>
+
+  <h2 id='volumeEnvelopes'>Volume Envelopes</h2>
+
+  <p>
+    Volume envelopes enable you to flexibly fade volume by specifying control points,
+  each with a time and a value. Beautiful audio editor will linearly fade to a control point's value at its time.
+  </p>
+
+  <p class='imageParagraph'>
+    <img alt='Volume Envelope' src='/images/volumeEnvelope.jpg'>
+  </p>
+
+  <p>
+    Click on an empty envelope area to <em>add</em> a control point. Drag it around to vary its gain value and the time into the project at which to take on that value.
+    Briefly click a control point to <em>remove</em> it.
+  </p>
+
+  <h2 id='defaultMicroPhoneRecord'>Recording</h2>
+
+  <p>
+    Start recording on a mono channel through your default microphone by clicking on this button. 
+  </p>
+
+  <p class='imageParagraph'>
+    <img alt='Record Button' src='/images/recordButton.jpg'>
+  </p>
+
+  <p>
+    Press it again to stop recording. Your recording will end up in a new track.
+    The timer shows how much you have recorded so far.
+  </p>
+
+  <p>
+    For the record button to work, you must allow your browser to access your microphone through the native dialog.   
+  </p>
+
+  <p>
+    You can alter settings related to recording after opening the Master <em>Settings</em> helper panel via the button on the bottom.
+    You can change the number of channels used to record, whether to play while recording, and whether to insert your new recording at the beginning of the project instead of at the current play time.
+  </p>
+
+<!--   <p class='imageParagraph'>
+    <img alt='Allow your browser to access your microphone.' src='/images/giveBrowserMicrophoneAccess.jpg'>
+  </p> -->
+
+  <h2 id='zooming'>Zooming</h2>
+
+  <p>
+    Zoom in or out with the zoom slider in the footer. Higher numbers correspond to more detailed zooms.
+  </p>
+
+  <h2 id='keyboardShortcuts'>Keyboard Shortcuts</h2>
+
+  <table class='descriptionTable'>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        [SPACE]
+      </td>
+      <td class='iconDescription'>
+        Play, or pause. Will not work when you are typing.
+      </td>
+    </tr>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        CTRL + Z
+      </td>
+      <td class='iconDescription'>
+        Undo the last command.
+      </td>
+    </tr>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        CTRL + Y
+      </td>
+      <td class='iconDescription'>
+        Redo the previously un-done command.
+      </td>
+    </tr>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        CTRL + R
+      </td>
+      <td class='iconDescription'>
+        Record, or stop recording.
+      </td>
+    </tr>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        CTRL + 0
+      </td>
+      <td class='iconDescription'>
+        Zoom to the default level.
+      </td>
+    </tr>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        CTRL + 1
+      </td>
+      <td class='iconDescription'>
+        Zoom out a level.
+      </td>
+    </tr>
+    <tr>
+      <td class='keyboardShortcutPreview'>
+        CTRL + 2
+      </td>
+      <td class='iconDescription'>
+        Zoom in a level.
+      </td>
+    </tr>
+  </table>
+
+  <h2 id='supportedBrowsers'>Supported Browsers</h2>
+
+  <p>
+    Beautiful Audio Editor runs on <a href='https://www.google.com/chrome/browser/'>Google Chrome</a> or
+          <a href='https://www.mozilla.org/'>Mozilla Firefox</a> due to their reliable support for the latest APIs.
+    Notably, we use the web audio API, so you don't have to install pesky plugins.
+  </p>
+
+  <p>
+    We add browsers as they adopt W3C standards.
+  </p>
+
+</div>
+
+{% endblock mainContent %}
+
+
+{% block javascriptFunctions %}
+
+function offsetHeaderDueToTableOfContents() {
+  var header = document.getElementById('header');
+  header.style.left =
+      Math.floor(document.getElementById('helperContainer').offsetWidth / -2) +
+          'px';
+}
+
+function createTableOfContents() {
+  var tableOfContents = document.getElementById('tableOfContents');
+  var allHeaders = document.querySelectorAll('#mainContent h2');
+  var numberOfHeaders = allHeaders.length;
+  for (var i = 0; i < numberOfHeaders; ++i) {
+    var header = allHeaders[i];
+    var newLink = document.createElement('a');
+    newLink.href = '#' + header.id;
+    newLink.innerHTML = header.innerHTML;
+    tableOfContents.appendChild(newLink);
+  }
+}
+
+{% endblock javascriptFunctions %}
+
+
+{% block onloadJavascript %}
+createTableOfContents();
+
+// Offset the menu bar.
+document.getElementById('mainMenu').style.paddingLeft = '250px';
+
+{% endblock onloadJavascript %}
+
+{% block onResizeJavascript %}
+{% endblock onResizeJavascript %}

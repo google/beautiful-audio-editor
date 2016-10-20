@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html{% block htmlTagAttributes %} manifest='cache.mf'{% endblock htmlTagAttributes %}>
+<head>
+  <title>
+    {% block title %}
+      {% include 'snippets/editor-title.html' %}
+    {% endblock title %}
+  </title>
+  <link rel='stylesheet' type='text/css' href='/css/static.css'>
+  <link rel='icon' type='image/x-icon' href='/images/favicon.ico'>
+  {% block bottomHeader %}{% endblock bottomHeader %}
+</head>
+<body>
+  <table id='layoutTable'>
+    <tr>
+      {% block helperPanelContainer %}
+      <td id='helperContainer'>
+        {% block helperPanel %}
+        {% endblock helperPanel %}
+      </td>
+      {% endblock helperPanelContainer %}
+      <td id='mainContainer'>
+        <div id='header'>
+          <div id='banner'>
+            <a href='/' id='bannerLink'>
+              {% include 'snippets/editor-title.html' %}
+            </a>
+          </div>
+          <div id='mainMenu'>
+            <a href='/app' target='_blank'>Demo</a>
+            <a href='/docs'>Docs</a>
+            <a href='https://chrome.google.com/webstore/detail/beautiful-audio-editor/okiblndpcefmebnkjnjfplijnelbcjmm'>Drive App for Desktop &amp; Mobile</a>
+            <a href='/submitFeedback'>Give us input.</a>
+          </div>
+        </div>
+        <div id='headerOffseter'></div>
+        <div id='mainContent'>
+          {% block mainContent %}{% endblock mainContent %}
+        </div>
+        <div id='footer'>
+          <a href='/privacyPolicy'>Privacy Policy</a> |
+          <a href='/acknowledgements'>Acknowledgements</a>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <script>
+    {% block javascriptFunctions %}{% endblock javascriptFunctions %}
+
+    function makeUpForFixedHeader() {
+      document.getElementById('headerOffseter').style.height =
+          document.getElementById('header').offsetHeight + 'px';
+    }
+
+    window.onload = function() {
+      makeUpForFixedHeader();
+      {% block onloadJavascript %}{% endblock onloadJavascript %}
+    };
+
+    window.addEventListener('resize', function() {
+      makeUpForFixedHeader();
+      {% block onResizeJavascript %}{% endblock onResizeJavascript %}
+    }, false);
+
+    // Google Analytics
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-62823804-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/** CSS for the Manage Memory button. */
+
+.dangerousMemory {
+  color: #f00;
+}

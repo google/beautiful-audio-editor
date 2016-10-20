@@ -1,0 +1,267 @@
+/**
+ * CSS for the application.
+ * Note that a class name must be included in this file for Closure to obscure
+ * the class name during compilation. The body of the class name entry must also
+ * contain at least 1 property-value pair.
+ */
+
+@def ASSUMED_MAX_FOOTER_HEIGHT 100px;
+@def FOOTER_PADDING 10px;
+@def FOOTER_TOP_BORDER_WIDTH 1px;
+@def FOOTER_TEXT_COLOR #BBE200;
+@def FOOTER_TOTAL_HEIGHT add(ASSUMED_MAX_FOOTER_HEIGHT, FOOTER_TOP_BORDER_WIDTH, FOOTER_PADDING, FOOTER_PADDING);
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  color: #FFCB0D;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+body, .rulerAreaContainer, .header {
+  background: #595959; /** A grey color. */
+}
+
+.all {
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  padding-bottom: FOOTER_TOTAL_HEIGHT;
+  user-select: none;
+}
+
+/** Used to make the application take up the mobile screen. */
+.mobileScrollableLayout {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.allowSelect {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.header {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 512;
+}
+
+.headerOffsetter {
+  z-index: 0;
+}
+
+.upperBar {
+  width: 100%;
+}
+
+.utilityContainer, .audioDisplaySection {
+  font-style: normal;
+}
+
+.titleContainer {
+  background: #1B1B1B;
+  display: block;
+  padding: 5px;
+}
+
+.midSection {
+  position: relative;
+}
+
+@def LIGHT_QUICK_DARK_GRADIENT linear-gradient(to bottom, #444 0%, #222 14%, #000 35%);
+
+.footer {
+  background: LIGHT_QUICK_DARK_GRADIENT;
+  border-top: FOOTER_TOP_BORDER_WIDTH solid #222;
+  bottom: 0;
+  color: FOOTER_TEXT_COLOR;
+  left: 0;
+  padding: FOOTER_PADDING FOOTER_PADDING 0 FOOTER_PADDING;
+  position: fixed;
+  width: 100%;
+  z-index: 2048;
+}
+
+.footer > div {
+  margin: 0 0 FOOTER_PADDING 0;
+}
+
+@def SCROLLER_PERCENT_WIDTH 90%;
+.footer .horizontalScrollWidgetContainer {
+  left: 50%;
+  margin-left: divide(SCROLLER_PERCENT_WIDTH, -2);
+  position: absolute;
+  top: -20px;
+  width: SCROLLER_PERCENT_WIDTH;
+}
+
+/** Start CSS for left side of footer. */
+
+.footerLeftSide {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+/** Start CSS for play widget. */
+
+@def PLAY_WIDGET_CONTAINER_WRAPPER_WIDTH 400px;
+@def PLAY_WIDGET_BUTTON_HEIGHT 40px;
+@def LIGHT_COLOR rgba(255,255,255,0.6);
+@def DARK_COLOR #111;
+
+.playWidgetContainerWrapper {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.playWidgetContainer {
+  vertical-align: middle;
+}
+
+.playWidgetButton {
+  background: DARK_COLOR;
+  border: 1px solid LIGHT_COLOR;
+  border-radius: 10px;
+  color: LIGHT_COLOR;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 24px;
+  height: PLAY_WIDGET_BUTTON_HEIGHT;
+  line-height: PLAY_WIDGET_BUTTON_HEIGHT;
+  margin-right: 10px;
+  text-align: center;
+  width: PLAY_WIDGET_BUTTON_HEIGHT;
+}
+
+.hoverableApplication .playWidgetButton:hover {
+  background: LIGHT_COLOR;
+  border-color: DARK_COLOR;
+  color: DARK_COLOR;
+}
+
+@def START_OVER_BUTTON_LETTER_SPACE -0.5em;
+.startOverButton {
+  letter-spacing: START_OVER_BUTTON_LETTER_SPACE;
+  text-indent: START_OVER_BUTTON_LETTER_SPACE;
+}
+
+.playPauseButtonPlayIconDisplayed {
+  font-weight: normal;
+}
+
+.disabledWidgetButton {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.enabledWidgetButton {
+  opacity: 1;
+}
+
+.playPauseButtonPauseIconDisplayed {
+  font-weight: 900;
+}
+
+.playWidgetRenderToTrackButton {
+  padding: 0 10px;
+  font-weight: normal;
+  width: auto;
+}
+
+.defaultRecordButtonRecordingMode {
+  font-weight: normal;
+}
+
+.defaultRecordButtonNonRecordingMode {
+  font-style: normal;
+}
+
+.footer > .masterClipDetectorWidgetContainerWrapper {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: -5px;
+  vertical-align: middle;
+  width: 80px;
+}
+
+/** CSS Pertaining to the menu bar. */
+
+.menu-bar, .goog-menubar-horizontal {
+  font-style: normal;
+}
+
+/** Tutorial-related CSS */
+
+.appLoadingWidgetWrapper {
+  height: 20px;
+  margin: 10px 0 0 0;
+  width: 100%;
+}
+
+.appLoadingWidgetWrapper .loadingWidgetOuterContainer {
+  border: 1px solid #000;
+}
+
+.tutorial {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  font-size: 25px;
+  font-weight: 580;
+  height: 100vh;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100vw;
+  z-index: 6144;
+}
+
+.tutorial a {
+  color: #bdff44;
+}
+
+.tutorial a:hover {
+  color: #ffcb0d;
+}
+
+.tutorial > div {
+  margin: 20px 0;
+}
+
+.tutorial .todoEntry {
+  display: inline-block;
+  margin: 0 20px 0 0;
+  vertical-align: top;
+  width: 150px;
+}
+
+.tutorial .todoEntry img {
+  border-radius: 20px;
+  height: 150px;
+  margin: 0 0 10px 0;
+  width: 150px;
+}
+
+.tutorial .kButton {
+  font-size: 120%; 
+}

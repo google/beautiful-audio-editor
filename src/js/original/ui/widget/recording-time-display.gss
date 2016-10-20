@@ -1,0 +1,30 @@
+/** CSS for the recording time display. */
+
+@def TIME_RECORDING_SCALE scale(1,1.2);
+@def GENERAL_HEIGHT 40px;
+@def VERTICALLY_CENTERING_TRANSFORM translate(0, -50%);
+@def RECORDING_TIME_FONT_SIZE 28px;
+
+.defaultRecordingTimeDisplay {
+  background: linear-gradient(to bottom,rgba(230,240,163,1) 0%,rgba(210,230,56,1) 50%,rgba(195,216,37,1) 51%,rgba(219,240,67,1) 100%);
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #111;
+  display: inline-block;
+  height: GENERAL_HEIGHT;
+  overflow: hidden;
+  padding: 0 5px;
+  position: relative;
+}
+
+.recordingTimeDisplayText {
+  font-family: courier, monospace;
+  font-size: RECORDING_TIME_FONT_SIZE;
+  font-weight: 100;
+  height: RECORDING_TIME_FONT_SIZE;
+  line-height: RECORDING_TIME_FONT_SIZE;
+  position: relative;
+  top: 50%;
+  transform: VERTICALLY_CENTERING_TRANSFORM;
+  -webkit-transform: VERTICALLY_CENTERING_TRANSFORM; 
+}

@@ -1,0 +1,28 @@
+.envelopeRenderer {
+  background: rgba(58, 58, 58, 0.92);
+  overflow: hidden;
+  position: relative;
+}
+
+@def DRAGGER_WIDTH 6px;
+@def DRAGGER_BORDER_WIDTH 1px;
+@def RADIAL_LENGTH add(divide(DRAGGER_WIDTH, 2), DRAGGER_BORDER_WIDTH);
+
+.controlPointDragger {
+  background: #BBE200;
+  border: DRAGGER_BORDER_WIDTH solid #FFCB0D;
+  border-radius: 50%;
+  cursor: pointer;
+  height: DRAGGER_WIDTH;
+  margin: mult(RADIAL_LENGTH, -1) 0 0 mult(RADIAL_LENGTH, -1);
+  position: absolute;
+  width: DRAGGER_WIDTH;
+}
+
+@def MOBILE_DRAGGER_WIDTH 17px;
+@def MOBILE_RADIAL_LENGTH add(divide(MOBILE_DRAGGER_WIDTH, 2), DRAGGER_BORDER_WIDTH);
+.mobileScrollableLayout .controlPointDragger {
+  margin: mult(MOBILE_RADIAL_LENGTH, -1) 0 0 mult(MOBILE_RADIAL_LENGTH, -1);
+  height: MOBILE_DRAGGER_WIDTH;
+  width: MOBILE_DRAGGER_WIDTH;
+}

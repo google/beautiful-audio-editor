@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Beautiful Audio Editor",
+  "short_name": "Beautiful",
+  "version": "0.0.3.133",
+  "homepage_url": "https://beautifulaudioeditor.appspot.com/",
+  "offline_enabled": true,
+  "description": "The in-browser, multi-track audio editor for Desktop and mobile. Make podcasts, mixes, and more.",
+  "container": "GOOGLE_DRIVE",
+  "api_console_project_id": "387438084475",
+  "gdrive_mime_types": {
+    "http://drive.google.com/intents/opendrivedoc": [
+      {
+        "type": ["application/audioproject", "application/vnd.google.drive.ext-type.audioproject"],
+        "href": "https://beautifulaudioeditor.appspot.com/app",
+        "title": "Open",
+        "disposition": "window"
+      }
+    ]
+  },
+  "icons":
+  {
+    "16": "logo1616.gif",
+    "128": "logo128128.gif"
+  },
+  "app": {
+    "launch": {
+      "web_url": "https://beautifulaudioeditor.appspot.com/app?google-drive-action=create"
+    }
+  },
+  "minimum_chrome_version": "31.0.1650.8"
+}
