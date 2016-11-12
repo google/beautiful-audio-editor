@@ -248,9 +248,19 @@ body, .rulerAreaContainer, .header {
   margin: 20px 0;
 }
 
+.tutorial .tutorialIntroSentence {
+  display: block;
+  font-size: 22.5px;
+}
+
+.tutorial .todoEntrySection {
+  margin-bottom: 0;
+}
+
 .tutorial .todoEntry {
   display: inline-block;
-  margin: 0 20px 0 0;
+  margin: 0 10px 20px 10px;
+  text-align: right;
   vertical-align: top;
   width: 150px;
 }
@@ -262,6 +272,21 @@ body, .rulerAreaContainer, .header {
   width: 150px;
 }
 
+.tutorial .beginAndThankYou {
+  margin: 0 auto;
+  max-width: 660px;
+  text-align: right;
+}
+
 .tutorial .kButton {
-  font-size: 120%; 
+  display: inline-block;
+  float: left;
+  font-size: 120%;
+}
+
+.tutorial .thankYouCredits {
+  display: inline-block;
+  font-size: 18px;
+  position: relative;
+  top: 10px;
 }

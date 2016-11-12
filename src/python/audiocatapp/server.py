@@ -12,6 +12,10 @@ app = webapp2.WSGIApplication([
     ('(.+)/$', utility.TrailingSlashRemover),
     ('/acknowledgements', main.AcknowledgementsPage),
     ('/app', app.AppPage),
+
+    # Using the introduction endpoint will take users to a brief tutorial.
+    ('/introduction', app.AppPage),
+    
     ('/about', main.AboutPage),
     ('/docs', main.DocsPage),
     ('/privacyPolicy', main.PrivacyPolicyPage),

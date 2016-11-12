@@ -793,7 +793,8 @@ audioCat.app.App.prototype.render = function(container) {
     primaryService.takeAppropriateAction(this.actionManager_);
   } else {
     // We lack a primary service, but are we doing the tutorial?
-    if (goog.global.location.href.match(/[\?&]introduction=1/)) {
+    if (goog.global.location.href.match(/\/introduction$/) ||
+        goog.global.location.href.match(/[\?&]introduction=1/)) {
       this.initializeTutorial_(
           this.project_,
           this.audioContextManager_,
@@ -1043,6 +1044,7 @@ audioCat.app.App.prototype.addTrackFromUrl_ = function(
   };
   request.send();
 };
+
 
 /**
  * Suppresses the default behavior of an event. Used to prevent native scrolling
