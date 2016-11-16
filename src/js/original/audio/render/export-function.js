@@ -29,9 +29,13 @@ audioCat.audio.render.ExportFunction = {};
       return;
     }
 
+    // Try to find where the path begins.
     var baseMarker = pageUrl.indexOf('/app');
     if (baseMarker == -1) {
       baseMarker = pageUrl.indexOf('/build');
+    }
+    if (baseMarker == -1) {
+      baseMarker = pageUrl.indexOf('/introduction');
     }
 
     var base = pageUrl.substring(0, baseMarker + 1);
