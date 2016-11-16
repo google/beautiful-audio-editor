@@ -19,6 +19,7 @@ app = webapp2.WSGIApplication([
     ('/about', main.AboutPage),
     ('/docs', main.DocsPage),
     ('/privacyPolicy', main.PrivacyPolicyPage),
+    ('/usagePolicy', main.UsagePolicyPage),
     ('/submitFeedback', main.SubmitFeedbackPage),
 
     # URL endpoint for logging render errors.

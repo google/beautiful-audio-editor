@@ -40,10 +40,16 @@ class PrivacyPolicyPage(webapp2.RequestHandler):
     self.response.write(template.render('privacyPolicy.html'))
 
 
+class UsagePolicyPage(webapp2.RequestHandler):
+  '''Produces a usage policy page response.'''
+  def get(self):
+    self.response.write(template.render('usagePolicy.html'))
+
+
 class SadCatPage(webapp2.RequestHandler):
   '''Produces a sad cat page response.'''
   def get(self):
-    self.response.write(template.render('sad-cat.html'))
+    self.response.write(template.render('sadCat.html'))
 
 
 class SubmitFeedbackPage(webapp2.RequestHandler):

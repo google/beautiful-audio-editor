@@ -30,16 +30,10 @@ audioCat.audio.render.ExportFunction = {};
     }
 
     // Try to find where the path begins.
-    var baseMarker = pageUrl.indexOf('/app');
-    if (baseMarker == -1) {
-      baseMarker = pageUrl.indexOf('/build');
-    }
-    if (baseMarker == -1) {
-      baseMarker = pageUrl.indexOf('/introduction');
-    }
-
-    var base = pageUrl.substring(0, baseMarker + 1);
-    importScripts(base + 'js/lame.js');
+    var baseUrlMatches = pageUrl.match(/^https?:\/\/[^\/]+\//);
+    var baseUrl = baseUrlMatches && baseUrlMatches.length > 0 ?
+        baseUrlMatches[0] : '';
+    importScripts(baseUrl + 'js/lame.js');
 
     var sampleLength = channelData[0].length;
     var lib = new lamejs();
