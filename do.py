@@ -1,3 +1,17 @@
+# Copyright 2016 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """Build tool for the audio cat editor.
 Only works if run from home directory.
 """
@@ -10,6 +24,57 @@ import shutil
 import sys
 import datetime
 
+PYTHON_LICENSE = """
+# Copyright 2016 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+""".lstrip()
+
+JS_LICENSE = """
+/**
+ * Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+""".lstrip()
+
+HTML_LICENSE = """
+<!--
+Copyright 2016 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+""".lstrip()
 
 def make_system_call(unix_command):
   """Calls a command in the shell."""
@@ -371,6 +436,23 @@ def prepare_web_view_files():
 
 def set_server():
   copy_build_to_server()
+
+def prepend_license():
+  """Preprends an Apache 2.0 license block to code."""
+  directories = ['build', 'src/js/original', 'src/python']
+  for directory_name in directories:
+    for root, dirnames, filenames in os.walk(directory_name):
+      for filename in filenames:
+        if filename.endswith('.js') or filename.endswith('.gss'):
+          license_string = JS_LICENSE
+        elif filename.endswith('.html'):
+          license_string = HTML_LICENSE
+        elif filename.endswith('.py'):
+          license_string = PYTHON_LICENSE
+        else:
+          # We lack a license for this file.
+          continue
+        os.path.join(root, filename)
 
 def build():
   '''Builds the client, then copies relevant files to the local server.'''
