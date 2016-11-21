@@ -438,7 +438,7 @@ def set_server():
   copy_build_to_server()
 
 def prepend_license():
-  """Preprends an Apache 2.0 license block to code."""
+  print "Preprending Apache 2.0 licenses to blocks of code ..."
   directories = ['build', 'src/js/original', 'src/python']
   for directory_name in directories:
     for root, dirnames, filenames in os.walk(directory_name):
@@ -452,7 +452,18 @@ def prepend_license():
         else:
           # We lack a license for this file.
           continue
-        os.path.join(root, filename)
+        file_location = os.path.join(root, filename)
+        readable = open(file_location)
+        contents = readable.read()
+        readable.close()
+        if 'Licensed under the Apache License, Version 2.0' in contents:
+          # This file already has a license block. Do not give it another one.
+          continue
+
+        writeable = open(file_location, 'w+')
+        writeable.write(license_string)
+        writeable.write(contents)
+        writeable.close()
 
 def build():
   '''Builds the client, then copies relevant files to the local server.'''
@@ -475,6 +486,7 @@ commands = {
   'fixjsstyle': fixjsstyle, # Fixes js style issues.
   'lint': lint, # Lints the js, finds js style issues.
   'manifest': update_manifest, # Updates the manifest with a new version number.
+  'prepend_license': prepend_license, # Prepends Apache 2.0 license to code.
   'server': set_server, # Copies files to the local app engine app.
   'update_deps': generate_deps, # Generates js dependencies for local debugging.
 }

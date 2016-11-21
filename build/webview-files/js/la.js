@@ -1,3 +1,18 @@
+/**
+ * Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 var Lame=function(){function kl(a){eval.call(null,a)}function gi(a){Module.print(a+":\n"+Error().stack);Ae=!0;throw"Assertion: "+a;}function ac(a,d){a||gi("Assertion failed: "+d)}function ll(a){try{var d=Bs.Module["_"+a];d||(d=eval("_"+a))}catch(b){}ac(d,"Cannot call unknown function "+a+" (perhaps LLVM optimizations or closure removed it?)");return d}function Gm(a,d,b,f){function c(a,d){if("string"==d){if(null===a||void 0===a||0===a)return 0;g||(g=U.stackSave());var k=U.stackAlloc(a.length+1);Hm(a,
 k);return k}return"array"==d?(g||(g=U.stackSave()),k=U.stackAlloc(a.length),Im(a,k),k):a}var g=0,h=0;f=f?f.map(function(a){return c(a,b[h++])}):[];a=function(a,d){if("string"==d)return ml(a);ac("array"!=d);return a}(a.apply(null,f),d);g&&U.stackRestore(g);return a}function Pi(k,d,e,f){e=e||"i8";"*"===e.charAt(e.length-1)&&(e="i32");switch(e){case "i1":l[k]=d;break;case "i8":l[k]=d;break;case "i16":Xa[k>>1]=d;break;case "i32":a[k>>2]=d;break;case "i64":kj=[d>>>0,Math.min(Math.floor(d/4294967296),4294967295)>>>
 0];a[k>>2]=kj[0];a[k+4>>2]=kj[1];break;case "float":b[k>>2]=d;break;case "double":oa[k>>3]=d;break;default:gi("invalid type for setValue: "+e)}}function Za(k,d,b,f){var c,g;"number"===typeof k?(c=!0,g=k):(c=!1,g=k.length);var h="string"===typeof d?d:null;b=b==hi?f:[Tc,U.stackAlloc,U.staticAlloc,U.dynamicAlloc][void 0===b?Kc:b](Math.max(g,h?1:d.length));if(c){f=b;ac(0==(b&3));for(k=b+(g&-4);f<k;f+=4)a[f>>2]=0;for(k=b+g;f<k;)l[f++|0]=0;return b}if("i8"===h)return k.subarray||k.slice?bc.set(k,b):bc.set(new Uint8Array(k),

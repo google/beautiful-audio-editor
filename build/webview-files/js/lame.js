@@ -1,3 +1,18 @@
+/**
+ * Copyright 2016 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 function lamejs(){function Y(d){return new Int32Array(d)}function H(d){return new Float32Array(d)}function ra(d){if(1==d.length)return H(d[0]);var k=d[0];d=d.slice(1);for(var q=[],C=0;C<k;C++)q.push(ra(d));return q}function db(d){if(1==d.length)return Y(d[0]);var k=d[0];d=d.slice(1);for(var q=[],C=0;C<k;C++)q.push(db(d));return q}function vc(d){if(1==d.length)return new Int16Array(d[0]);var k=d[0];d=d.slice(1);for(var q=[],C=0;C<k;C++)q.push(vc(d));return q}function Zb(d){if(1==d.length)return Array(d[0]);
 var k=d[0];d=d.slice(1);for(var q=[],C=0;C<k;C++)q.push(Zb(d));return q}function sa(d){this.ordinal=d}function M(d){this.ordinal=d}function ka(d){this.ordinal=function(){return d}}function Fc(){this.getLameVersion=function(){return"3.98.4"};this.getLameShortVersion=function(){return"3.98.4"};this.getLameVeryShortVersion=function(){return"LAME3.98r"};this.getPsyVersion=function(){return"0.93"};this.getLameUrl=function(){return"http://www.mp3dev.org/"};this.getLameOsBitness=function(){return"32bits"}}
 function Gc(){function d(b,g,a,h,k,e,n,c,f,E,z,w,A,v,p){this.vbr_q=b;this.quant_comp=g;this.quant_comp_s=a;this.expY=h;this.st_lrm=k;this.st_s=e;this.masking_adj=n;this.masking_adj_short=c;this.ath_lower=f;this.ath_curve=E;this.ath_sensitivity=z;this.interch=w;this.safejoint=A;this.sfb21mod=v;this.msfix=p}function k(b,g,a,d,k,e,n,c,f,E,z,w,A,v){this.quant_comp=g;this.quant_comp_s=a;this.safejoint=d;this.nsmsfix=k;this.st_lrm=e;this.st_s=n;this.nsbass=c;this.scale=f;this.masking_adj=E;this.ath_lower=
