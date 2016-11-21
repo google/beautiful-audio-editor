@@ -4,6 +4,7 @@ goog.require('audioCat.state.command.AddEffectCommand');
 goog.require('audioCat.state.effect.EffectId');
 goog.require('audioCat.ui.dialog.DialogText');
 goog.require('audioCat.ui.dialog.EventType');
+goog.require('goog.asserts');
 goog.require('goog.dom.classes');
 goog.require('goog.events');
 goog.require('goog.string');
@@ -33,7 +34,7 @@ audioCat.action.DisplayEffectSelectorAction = function(
     effectModelController,
     masterEffectManager,
     idGenerator) {
-  // TODO(chizeng): Create a new effect within a command.
+  audioCat.action.DisplayEffectSelectorAction.base(this, 'constructor');
 
   /**
    * @private {!audioCat.utility.IdGenerator}
@@ -101,7 +102,7 @@ audioCat.action.DisplayEffectSelectorAction = function(
 
   /**
    * The most recently displayed dialog for adding effects. Could be null.
-   * @private {audioCat.ui.dialog.DialogWidget}
+   * @private {?audioCat.ui.dialog.DialogWidget}
    */
   this.dialog_ = null;
 
@@ -149,6 +150,8 @@ audioCat.action.DisplayEffectSelectorAction = function(
   domHelper.listenForUpPress(this.listHtmlElement_,
       this.handleModelListUpPress_, false, this);
 };
+goog.inherits(
+    audioCat.action.DisplayEffectSelectorAction, audioCat.action.Action);
 
 /**
  * Handles what happens when a list item representing an effect model is
@@ -184,8 +187,8 @@ audioCat.action.DisplayEffectSelectorAction.prototype.handleModelListUpPress_ =
             this.idGenerator_));
 
     // Remove the dialog.
-    this.dialogManager_.hideDialog(
-        /** @type {!audioCat.ui.dialog.DialogWidget} */ (this.dialog_));
+    goog.asserts.assert(this.dialog_);
+    this.dialogManager_.hideDialog(this.dialog_);
     this.dialog_ = null;
 
     // Remove the listener for cancel to be clicked.

@@ -2,21 +2,25 @@
 
 ## Overview
 
-This audio editor runs in a web browser and uses the Web Audio API. Chi 
+This audio editor runs in a web browser and uses the Web Audio API. Chi
 made some efforts to embed it within a web view and make it an Android
 app, but halted after facing memory issues.
 
-This project uses Google Closure, which encompasses a javascript compiler, 
+This project uses Google Closure, which encompasses a javascript compiler,
 library, Google Stylesheets (GSS - which lets us compile CSS), and soy templates
 (for structuring pieces of HTML). Closure standardizes javascript. For instance,
 it introduces private/protected variables, normal (non-prototypical)
 inheritance like java, and compile-time error checking.
 
+This is not an official Google product. Chi just thought that the Chrome Web
+Store needed a nimble audio editing tool, both before and after Android apps can
+run on Chromebooks.
+
 ## Setup
 1. Give Google Closure build tools relevant execute permissions:
 
 ```bash
-chmod a+x third_party/closure_library/closure/bin/build/closurebuilder.py 
+chmod a+x third_party/closure_library/closure/bin/build/closurebuilder.py
 chmod a+x third_party/closure_library/closure/bin/build/depswriter.py
 chmod a+x third_party/closure_templates/SoyToJsSrcCompiler.jar
 chmod a+x third_party/closure_stylesheets/closure-stylesheets-20111230.jar
@@ -108,7 +112,7 @@ to visualize the track.
 #### `src/js/original/audio`
 
 This folder contains classes related to playing audio and hooking up with the
-Web Audio API. For instance, `audioCat.audio.play.PlayManager` maintains the 
+Web Audio API. For instance, `audioCat.audio.play.PlayManager` maintains the
 current play status. `audioCat.audio.AudioGraph` maintains the connections
 between junctions in the audio graph.
 
@@ -120,7 +124,7 @@ playing starts, the UI responds by switching the play icon to a pause icon.
 
 This folder contains files that updates the UI. Classes in this folder typically
 encapsulate state and audio play. When the user interacts with the UI, classes in
-this folder directly modify the state objects. The state then fires events that update 
+this folder directly modify the state objects. The state then fires events that update
 the UI.
 
 #### `src/js/original/app`

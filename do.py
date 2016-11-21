@@ -69,7 +69,7 @@ def compile_stylesheets():
   except OSError:
     # The file doesn't exist in the first place ...
     pass
-  
+
   make_system_call("""
       java -jar third_party/closure_stylesheets/closure-stylesheets-20111230.jar \
           --output-renaming-map-format CLOSURE_COMPILED \
@@ -174,7 +174,7 @@ def generate_deps():
       deps_file_name = 'deps-mobile.js'
   build_directory_path = 'build/js/'
   deps_file_path = build_directory_path + deps_file_name
-  
+
   try:
     os.remove(build_directory_path + 'deps.js')
   except OSError:
@@ -229,6 +229,14 @@ def update_manifest():
 
 def copy_build_to_server():
   """Copies static files including compiled js and css to the server."""
+  print 'Copying third_party js into build/js ...'
+  third_party_js_dir = 'third_party/js'
+  files = os.listdir(third_party_js_dir)
+  for f in files:
+    if not f.endswith('.js'):
+      continue
+    shutil.copyfile(
+        os.path.join(third_party_js_dir, f), os.path.join('build/js', f))
   print 'Copying files to local app server ...'
   files_to_ignore = {
     '.DS_Store': 1,
@@ -244,8 +252,10 @@ def copy_build_to_server():
   white_listed_scripts = ['c', 'cm', 'lame']
   for script in white_listed_scripts:
     script += '.js'
-    shutil.copyfile(
-        os.path.join(src_js_dir, script), os.path.join(dest_js_dir, script))
+    original_location = os.path.join(src_js_dir, script)
+    if not os.path.exists(original_location):
+      continue
+    shutil.copyfile(original_location, os.path.join(dest_js_dir, script))
     files_to_manifest.append(os.path.join('js', script))
   copy_dirs = ['css', 'images', 'media']
   dirs_to_exclude_in_cache = ['media']
@@ -290,7 +300,7 @@ def copy_html_to_server():
   html_file.close()
   app_content_file.write(
       'DESKTOP_APP_CONTENT = ' + triple_quotes + html + triple_quotes + breaks)
-  
+
   # Grab and write the mobile file data.
   html_file = open('build/compiled-mobile.html')
   html = html_file.read()
@@ -362,17 +372,6 @@ def prepare_web_view_files():
 def set_server():
   copy_build_to_server()
 
-def stage_personal():
-  make_system_call("""
-      scp build/css/c.css youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/css
-      scp build/compiled.html youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/
-      scp build/compiled-mobile.html youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/
-      scp build/js/c.js youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/js
-      scp build/js/cm.js youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/js
-      scp build/images/*.svg youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/images
-      scp -r build/webview-files youchun@chizeng.com:chizeng.com/misc/docudocker/audioCat/web-view
-    """)
-
 def build():
   '''Builds the client, then copies relevant files to the local server.'''
   build_client()
@@ -395,7 +394,6 @@ commands = {
   'lint': lint, # Lints the js, finds js style issues.
   'manifest': update_manifest, # Updates the manifest with a new version number.
   'server': set_server, # Copies files to the local app engine app.
-  'stage_personal': stage_personal, # Stages the app onto chizeng.com publicly.
   'update_deps': generate_deps, # Generates js dependencies for local debugging.
 }
 

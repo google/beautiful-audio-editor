@@ -19,6 +19,9 @@ build/js/c.js
 build/js/cm.js
 build/js/deps.js
 build/js/deps-mobile.js
+build/js/deps-mobile.js
+build/js/la.js
+build/js/lame.js
 develop-eggs/
 dist/
 downloads/
