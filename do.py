@@ -337,15 +337,48 @@ def copy_build_to_server():
         files_to_manifest.append(os.path.join(dir_to_copy, f))
   # Copy over the contents of build/compiled.html
   copy_html_to_server()
+
+  # Make sure all paths begin with '/'.
+  for i, name in enumerate(files_to_manifest):
+    if not name.startswith('/'):
+      files_to_manifest[i] = '/' + name
+
+  # We no longer create a cache manifest. We use service workers to allow for
+  # offline access.
+  raw_service_worker_script_name = 'service-worker.js'
+  raw_service_worker_script = os.path.join(
+      'src/raw_scripts', raw_service_worker_script_name)
+  service_worker_read = open(raw_service_worker_script)
+  content = service_worker_read.read()
+  service_worker_read.close()
+  version_string_match = re.search(r'CACHE_VERSION_(\d+)', content)
+  old_version = int(version_string_match.group(1))
+  new_version = old_version + 1
+  content = content.replace(
+      'CACHE_VERSION_' + str(old_version), 'CACHE_VERSION_' + str(new_version))
+  with open(raw_service_worker_script, 'w+') as output:
+    # Update the previous file with a new version.
+    output.write(content)
+  content = content.replace('URLS_TO_CACHE', json.dumps(files_to_manifest))
+  output_name = os.path.join(
+      'src/python/audiocatapp/static/js',
+      raw_service_worker_script_name)
+  with open(output_name, 'w+') as output:
+    output.write(content)
+
+  # TODO: Configure app engine to access /service_worker.js.
+  # TODO: Remove manifest=... from the HTML.
+  # TODO: Move the service worker JS to the app engine dir.
+
   # Write the cache manifest file.
-  manifest_file = open(os.path.join(dest_dir_root, 'cache.mf'), 'w+')
-  changed_token = str(datetime.datetime.now())
-  manifest_file.write("CACHE MANIFEST\n" + '# ' + changed_token + "\n\n")
-  manifest_file.write("\n".join(files_to_manifest) + "\n")
-  manifest_file.write("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700")
-  manifest_file.write("\n\n")
-  manifest_file.write("NETWORK:\n *\n")
-  manifest_file.close()
+  # manifest_file = open(os.path.join(dest_dir_root, 'cache.mf'), 'w+')
+  # changed_token = str(datetime.datetime.now())
+  # manifest_file.write("CACHE MANIFEST\n" + '# ' + changed_token + "\n\n")
+  # manifest_file.write("\n".join(files_to_manifest) + "\n")
+  # manifest_file.write("https://fonts.googleapis.com/css?family=Open+Sans:300italic,400,300,700")
+  # manifest_file.write("\n\n")
+  # manifest_file.write("NETWORK:\n *\n")
+  # manifest_file.close()
 
 def copy_html_to_server():
   '''Copies over HTML of the app to the local server.'''
@@ -469,7 +502,9 @@ def build():
   '''Builds the client, then copies relevant files to the local server.'''
   build_client()
   set_server()
+  
   update_manifest()
+  
   for word in sys.argv[2:]:
     if word == 'mobile':
       # We're compiling for mobile. Take special action.

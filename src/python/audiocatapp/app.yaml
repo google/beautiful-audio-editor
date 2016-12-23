@@ -17,6 +17,11 @@ handlers:
   static_dir: static/images
   expiration: '5d'
 
+- url: /(service-worker\.js)
+  static_files: static/js/\1
+  mime_type: text/javascript
+  upload: static/js/service-worker.js
+
 - url: /js
   static_dir: static/js
 

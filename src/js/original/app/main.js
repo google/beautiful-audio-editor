@@ -33,4 +33,17 @@ goog.require('goog.dom');
       domHelper,
       new audioCat.state.Project()).render(
           /** @type {!Element} */ (domHelper.getDocument().body));
+
+  // Try to register a service worker.
+  if ('serviceWorker' in goog.global.navigator) {
+    goog.global.navigator['serviceWorker']['register']('/service-worker.js')[
+        'then'](function() {
+      // registration worked
+      goog.global.console.log('Caching the editor for offline use ...');
+    })['catch'](function(error) {
+      // registration failed
+      goog.global.console.log('Could not cache the editor for offline use. ' +
+          'Try using Google Chrome.');
+    });
+  }
 })();
