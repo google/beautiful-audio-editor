@@ -53,8 +53,8 @@ python do.py lint
 
 ## Running the Editor
 
-To run the editor, start up a web server in the home audio-cat directory.
-For example, in the audio-cat directory, call
+To run the editor, start up a web server in the home repository directory.
+For example, in the repository directory, run
 
 ```bash
 python -m SimpleHTTPServer
@@ -151,7 +151,7 @@ This folder contains code that allows the editor to be embedded within an Androi
 Unit tests currently use Google Closure's junit utility class.
 
 Unit tests for certain javascript classes can be run by starting a web server
-in the home audio-cat directory, again with say
+in the home repository directory, again with say
 
 ```bash
 python -m SimpleHTTPServer
@@ -160,7 +160,7 @@ python -m SimpleHTTPServer
 and then visiting say (for port 8000 on localhost):
 
 ```bash
-http://localhost:8000/src/test/tests.html
+http://localhost:8000/src/js/test/tests.html
 ```
 
 We currently lack integration tests with say web driver, Selenium, or Google

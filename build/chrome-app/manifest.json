@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Beautiful Audio Editor",
   "short_name": "Beautiful",
-  "version": "0.0.3.167",
+  "version": "0.0.3.168",
   "homepage_url": "https://beautifulaudioeditor.appspot.com/",
   "offline_enabled": true,
   "description": "The in-browser, multi-track audio editor for Desktop and mobile. Make podcasts, mixes, and more.",
