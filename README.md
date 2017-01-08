@@ -148,7 +148,10 @@ This folder contains code that allows the editor to be embedded within an Androi
 
 ## Testing
 
-Unit tests currently use Google Closure's junit utility class.
+Unit tests currently use Google Closure's junit library. To add a unit test,
+
+1. Code up a _test.js and _test.html file. See id-generator_test for an example.
+2. Run `python do.py` to aggregate all tests into `auto_generated/all_tests.js`.
 
 Unit tests for certain javascript classes can be run by starting a web server
 in the home repository directory, again with say
@@ -162,6 +165,8 @@ and then visiting say (for port 8000 on localhost):
 ```bash
 http://localhost:8000/src/js/test/tests.html
 ```
+
+Click Start to run tests.
 
 We currently lack integration tests with say web driver, Selenium, or Google
 Telemetry.

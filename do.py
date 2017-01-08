@@ -93,7 +93,7 @@ def fixjsstyle():
     """)
 
 def retrieve_file_list_string(grep_search_string):
-  """Retrieves a shell command for obtaining list of files based on the grep
+  """Retrieves a shell command for obtaining a list of files based on the grep
       search string.
   """
   return '$(find src/js/original -iname ' + grep_search_string + \
@@ -498,11 +498,23 @@ def prepend_license():
         writeable.write(contents)
         writeable.close()
 
+def aggregate_tests():
+  '''Aggregates the list of all tests into a file.'''
+  print 'Aggregating all tests into auto_generated/all_tests.js.'
+  test_html_files = []
+  for root, directories, files in os.walk('src/js/original'):
+    for file in files:
+      if file.endswith("_test.html"):
+        # Pre-pend with '/' so that 
+        test_html_files.append(os.path.join(root, file))
+  with open('src/js/auto_generated/all_tests.js', 'w+') as output_file:
+    output_file.write('var _allTests = ' + json.dumps(test_html_files) + ';')
+
 def build():
   '''Builds the client, then copies relevant files to the local server.'''
   build_client()
   set_server()
-  
+  aggregate_tests()
   update_manifest()
   
   for word in sys.argv[2:]:
