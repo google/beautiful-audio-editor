@@ -61,7 +61,7 @@ goog.inherits(goog.ui.MenuItem, goog.ui.Control);
  * mnenomic key to 70 (F), when the user opens the menu and hits "F," the
  * menu item is triggered.
  *
- * @type {goog.events.KeyCodes}
+ * @type {goog.events.KeyCode}
  * @private
  */
 goog.ui.MenuItem.mnemonicKey_;
@@ -211,7 +211,7 @@ goog.ui.MenuItem.prototype.handleKeyEventInternal = function(e) {
 /**
  * Sets the mnemonic key code. The mnemonic is the key associated with this
  * action.
- * @param {goog.events.KeyCodes} key The key code.
+ * @param {goog.events.KeyCode} key The key code.
  */
 goog.ui.MenuItem.prototype.setMnemonic = function(key) {
   this.mnemonicKey_ = key;
@@ -221,7 +221,7 @@ goog.ui.MenuItem.prototype.setMnemonic = function(key) {
 /**
  * Gets the mnemonic key code. The mnemonic is the key associated with this
  * action.
- * @return {goog.events.KeyCodes} The key code of the mnemonic key.
+ * @return {goog.events.KeyCode} The key code of the mnemonic key.
  */
 goog.ui.MenuItem.prototype.getMnemonic = function() {
   return this.mnemonicKey_;

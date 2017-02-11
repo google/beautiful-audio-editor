@@ -482,7 +482,7 @@ soy.$$checkMapKey = function(key) {
 /**
  * Gets the keys in a map as an array. There are no guarantees on the order.
  * @param {Object} map The map to get the keys of.
- * @return {Array.<string>} The array of keys in the given map.
+ * @return {!Array.<string>} The array of keys in the given map.
  */
 soy.$$getMapKeys = function(map) {
   var mapKeys = [];
@@ -1226,7 +1226,7 @@ soy.$$bidiFormatterCache_ = {};
  * Returns cached bidi formatter for bidiGlobalDir, or creates a new one.
  * @param {number} bidiGlobalDir The global directionality context: 1 if ltr, -1
  *     if rtl, 0 if unknown.
- * @return {goog.i18n.BidiFormatter} A formatter for bidiGlobalDir.
+ * @return {!goog.i18n.BidiFormatter} A formatter for bidiGlobalDir.
  * @private
  */
 soy.$$getBidiFormatterInstance_ = function(bidiGlobalDir) {
@@ -1264,7 +1264,7 @@ soy.$$bidiTextDir = function(text, opt_isHtml) {
  * @param {string} text The text whose directionality is to be estimated.
  * @param {boolean=} opt_isHtml Whether text is HTML/HTML-escaped.
  *     Default: false.
- * @return {soydata.SanitizedHtmlAttribute} 'dir="rtl"' for RTL text in non-RTL
+ * @return {!soydata.SanitizedHtmlAttribute} 'dir="rtl"' for RTL text in non-RTL
  *     context; 'dir="ltr"' for LTR text in non-LTR context;
  *     else, the empty string.
  */

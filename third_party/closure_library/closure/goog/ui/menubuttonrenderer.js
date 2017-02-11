@@ -73,7 +73,7 @@ goog.ui.MenuButtonRenderer.prototype.getContentElement = function(element) {
  * finds one, decorates it and attaches it to the menu button.
  * @param {goog.ui.Control} control goog.ui.MenuButton to decorate the element.
  * @param {Element} element Element to decorate.
- * @return {Element} Decorated element.
+ * @return {!Element} Decorated element.
  * @override
  */
 goog.ui.MenuButtonRenderer.prototype.decorate = function(control, element) {
@@ -116,7 +116,7 @@ goog.ui.MenuButtonRenderer.prototype.decorate = function(control, element) {
  * @param {goog.ui.ControlContent} content Text caption or DOM structure
  *     to wrap in a box.
  * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
- * @return {Element} Pseudo-rounded-corner box containing the content.
+ * @return {!Element} Pseudo-rounded-corner box containing the content.
  * @override
  */
 goog.ui.MenuButtonRenderer.prototype.createButton = function(content, dom) {
@@ -134,7 +134,7 @@ goog.ui.MenuButtonRenderer.prototype.createButton = function(content, dom) {
  * @param {goog.ui.ControlContent} content Text caption or DOM structure
  *     to wrap in a box.
  * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
- * @return {Element} Caption element.
+ * @return {!Element} Caption element.
  */
 goog.ui.MenuButtonRenderer.prototype.createCaption = function(content, dom) {
   return goog.ui.MenuButtonRenderer.wrapCaption(
@@ -152,7 +152,7 @@ goog.ui.MenuButtonRenderer.prototype.createCaption = function(content, dom) {
  *     to wrap in a box.
  * @param {string} cssClass The CSS class for the renderer.
  * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
- * @return {Element} Caption element.
+ * @return {!Element} Caption element.
  */
 goog.ui.MenuButtonRenderer.wrapCaption = function(content, cssClass, dom) {
   return dom.createDom(
@@ -170,7 +170,7 @@ goog.ui.MenuButtonRenderer.wrapCaption = function(content, cssClass, dom) {
  *      &nbsp;
  *    </div>
  * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
- * @return {Element} Dropdown element.
+ * @return {!Element} Dropdown element.
  */
 goog.ui.MenuButtonRenderer.prototype.createDropdown = function(dom) {
   // 00A0 is &nbsp;

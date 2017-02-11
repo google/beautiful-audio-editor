@@ -80,12 +80,6 @@ def make_system_call(unix_command):
   """Calls a command in the shell."""
   os.system(unix_command)
 
-def lint():
-  """Lints javascript in the src directory according to Closure guidelines."""
-  make_system_call("""
-      gjslint -r src/js/original
-    """)
-
 def fixjsstyle():
   """Automatically tries to fix javascript style mishaps."""
   make_system_call("""
@@ -205,6 +199,7 @@ def compile_javascript():
 
   call += '--warning_level=VERBOSE '
   call += '--jscomp_warning=checkTypes '
+  call += '--jscomp_warning=lintChecks '
   call += '--jscomp_error=accessControls '
   call += '--jscomp_error=ambiguousFunctionDecl '
   call += '--jscomp_error=checkTypes '
@@ -505,7 +500,7 @@ def aggregate_tests():
   for root, directories, files in os.walk('src/js/original'):
     for file in files:
       if file.endswith("_test.html"):
-        # Pre-pend with '/' so that 
+        # Pre-pend with '/' so that
         test_html_files.append(os.path.join(root, file))
   with open('src/js/auto_generated/all_tests.js', 'w+') as output_file:
     output_file.write('var _allTests = ' + json.dumps(test_html_files) + ';')
@@ -516,7 +511,7 @@ def build():
   set_server()
   aggregate_tests()
   update_manifest()
-  
+
   for word in sys.argv[2:]:
     if word == 'mobile':
       # We're compiling for mobile. Take special action.
@@ -531,7 +526,6 @@ commands = {
   'compile_javascript': compile_javascript, # Builds the javascript for prod.
   'compile_templates': compile_templates, # Compiles soy templates into js.
   'fixjsstyle': fixjsstyle, # Fixes js style issues.
-  'lint': lint, # Lints the js, finds js style issues.
   'manifest': update_manifest, # Updates the manifest with a new version number.
   'prepend_license': prepend_license, # Prepends Apache 2.0 license to code.
   'server': set_server, # Copies files to the local app engine app.

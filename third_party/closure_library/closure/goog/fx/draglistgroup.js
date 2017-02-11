@@ -600,7 +600,7 @@ goog.fx.DragListGroup.prototype.handleMouseOrTouchMoveDuringDrag_ = function(
  * Creates copy of node being dragged.
  *
  * @param {Element} sourceEl Element to copy.
- * @return {Element} The clone of {@code sourceEl}.
+ * @return {!Element} The clone of {@code sourceEl}.
  * @deprecated Use goog.fx.Dragger.cloneNode().
  * @private
  */
@@ -616,7 +616,7 @@ goog.fx.DragListGroup.prototype.cloneNode_ = function(sourceEl) {
  * {@code createDragElement()} before the drag class is added.
  *
  * @param {Element} sourceEl Drag source element.
- * @return {Element} The new drag element.
+ * @return {!Element} The new drag element.
  * @protected
  * @suppress {deprecated}
  */
@@ -788,7 +788,7 @@ goog.fx.DragListGroup.prototype.cleanup_ = function(opt_e) {
   goog.events.unlisten(goog.global.document.body,
       goog.events.EventType.TOUCHMOVE,
       this.handleMouseOrTouchMoveDuringDrag_, false, this);
-  
+
   this.cleanupDragDom_();
 
   this.currDragItem_ = null;

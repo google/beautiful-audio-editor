@@ -192,7 +192,7 @@ goog.ui.ControlRenderer.prototype.getAriaRole = function() {
  * Returns the control's contents wrapped in a DIV, with the renderer's own
  * CSS class and additional state-specific classes applied to it.
  * @param {goog.ui.Control} control Control to render.
- * @return {Element} Root element for the control.
+ * @return {!Element} Root element for the control.
  */
 goog.ui.ControlRenderer.prototype.createDom = function(control) {
   // Create and return DIV wrapping contents.
@@ -282,7 +282,7 @@ goog.ui.ControlRenderer.prototype.canDecorate = function(element) {
  * element.
  * @param {goog.ui.Control} control Control instance to decorate the element.
  * @param {Element} element Element to decorate.
- * @return {Element} Decorated element.
+ * @return {!Element} Decorated element.
  */
 goog.ui.ControlRenderer.prototype.decorate = function(control, element) {
   // Set the control's ID to the decorated element's DOM ID, if any.
@@ -699,7 +699,7 @@ goog.ui.ControlRenderer.prototype.getCssClass = function() {
  * method doesn't reference {@link IE6_CLASS_COMBINATIONS} so that it can be
  * compiled out, but subclasses should return their IE6_CLASS_COMBINATIONS
  * static constant instead.
- * @return {Array.<Array.<string>>} Array of class name combinations.
+ * @return {!Array.<!Array.<string>>} Array of class name combinations.
  */
 goog.ui.ControlRenderer.prototype.getIe6ClassCombinations = function() {
   return [];
@@ -743,7 +743,7 @@ goog.ui.ControlRenderer.prototype.getStructuralCssClass = function() {
  * method is guaranteed to return an array of at least one element.
  * @param {goog.ui.Control} control Control whose CSS classes are to be
  *     returned.
- * @return {Array.<string>} Array of CSS class names applicable to the control.
+ * @return {!Array.<string>} Array of CSS class names applicable to the control.
  * @protected
  */
 goog.ui.ControlRenderer.prototype.getClassNames = function(control) {
@@ -792,7 +792,7 @@ goog.ui.ControlRenderer.prototype.getClassNames = function(control) {
  *     return matching combined classes for.
  * @param {?string=} opt_includedClass If provided, get only the combined
  *     classes that include this one.
- * @return {Array.<string>} Array of combined class names that should be
+ * @return {!Array.<string>} Array of combined class names that should be
  *     applied.
  * @private
  */

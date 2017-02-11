@@ -267,7 +267,7 @@ goog.ui.Container.prototype.setKeyEventTarget = function(element) {
  * first time this method is called.  The keyboard event handler listens for
  * keyboard events on the container's key event target, as determined by its
  * renderer.
- * @return {goog.events.KeyHandler} Keyboard event handler for this container.
+ * @return {!goog.events.KeyHandler} Keyboard event handler for this container.
  */
 goog.ui.Container.prototype.getKeyHandler = function() {
   return this.keyHandler_ ||
@@ -916,7 +916,7 @@ goog.ui.Container.prototype.addChildAt = function(control, index, opt_render) {
  * @param {boolean=} opt_unrender Whether to call {@code exitDocument} on the
  *     removed control, and detach its DOM from the document (defaults to
  *     false).
- * @return {goog.ui.Control} The removed control, if any.
+ * @return {!goog.ui.Control} The removed control, if any.
  * @override
  */
 goog.ui.Container.prototype.removeChild = function(control, opt_unrender) {

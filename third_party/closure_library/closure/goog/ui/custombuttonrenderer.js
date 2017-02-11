@@ -65,7 +65,7 @@ goog.ui.CustomButtonRenderer.CSS_CLASS = goog.getCssName('goog-custom-button');
  *    </div>
  * Overrides {@link goog.ui.ButtonRenderer#createDom}.
  * @param {goog.ui.Control} control goog.ui.Button to render.
- * @return {Element} Root element for the button.
+ * @return {!Element} Root element for the button.
  * @override
  */
 goog.ui.CustomButtonRenderer.prototype.createDom = function(control) {
@@ -121,7 +121,7 @@ goog.ui.CustomButtonRenderer.prototype.getContentElement = function(element) {
  * @param {goog.ui.ControlContent} content Text caption or DOM structure to wrap
  *     in a box.
  * @param {goog.dom.DomHelper} dom DOM helper, used for document interaction.
- * @return {Element} Pseudo-rounded-corner box containing the content.
+ * @return {!Element} Pseudo-rounded-corner box containing the content.
  */
 goog.ui.CustomButtonRenderer.prototype.createButton = function(content, dom) {
   return dom.createDom('div',
@@ -178,7 +178,7 @@ goog.ui.CustomButtonRenderer.prototype.hasBoxStructure = function(
  * Returns the element.  Overrides {@link goog.ui.ButtonRenderer#decorate}.
  * @param {goog.ui.Control} control Button instance to decorate the element.
  * @param {Element} element Element to decorate.
- * @return {Element} Decorated element.
+ * @return {!Element} Decorated element.
  * @override
  */
 goog.ui.CustomButtonRenderer.prototype.decorate = function(control, element) {

@@ -19,7 +19,7 @@ goog.provide('audioCat.state.plan.NumericConstant');
 
 /**
  * Enumerates constants related to encoding and decoding projects.
- * @enum {string}
+ * @const {!Object.<string, string>}
  */
 audioCat.state.plan.Constant = {
   FILE_INITIAL_MARK: 'audioproject',

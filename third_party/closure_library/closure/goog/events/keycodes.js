@@ -19,9 +19,13 @@
  * @see ../demos/keyhandler.html
  */
 
+goog.provide('goog.events.KeyCode');
 goog.provide('goog.events.KeyCodes');
 
 goog.require('goog.userAgent');
+
+/** @typedef {number} */
+goog.events.KeyCode;
 
 
 /**
@@ -30,7 +34,7 @@ goog.require('goog.userAgent');
  * This list is not localized and therefore some of the key codes are not
  * correct for non US keyboard layouts. See comments below.
  *
- * @enum {number}
+ * @const {!Object.<string, goog.events.KeyCode>}
  */
 goog.events.KeyCodes = {
   WIN_KEY_FF_LINUX: 0,

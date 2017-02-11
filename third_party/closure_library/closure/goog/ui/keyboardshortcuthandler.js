@@ -165,7 +165,7 @@ goog.ui.KeyboardShortcutHandler.Modifiers = {
 
 /**
  * Keys marked as global by default.
- * @type {Array.<goog.events.KeyCodes>}
+ * @type {Array.<goog.events.KeyCode>}
  * @private
  */
 goog.ui.KeyboardShortcutHandler.DEFAULT_GLOBAL_KEYS_ = [
@@ -503,7 +503,7 @@ goog.ui.KeyboardShortcutHandler.prototype.isShortcutRegistered = function(
  * @param {Object} args The "arguments" array passed
  *     to registerShortcut or unregisterShortcut.  Please see the comments in
  *     registerShortcut for list of allowed forms.
- * @return {Array.<Object>} The sequence of objects containing the
+ * @return {!Array.<Object>} The sequence of objects containing the
  *     keyCode and modifiers of each key in sequence.
  * @private
  */
