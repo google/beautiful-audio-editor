@@ -17,19 +17,15 @@ Store needed a nimble audio editing tool, both before and after Android apps can
 run on Chromebooks.
 
 ## Setup
-1. Give Google Closure build tools relevant execute permissions:
+1. [Install java](https://java.com/en/download/help/download_options.xml).
+
+2. Give Google Closure build tools relevant execute permissions:
 
 ```bash
 chmod a+x third_party/closure_library/closure/bin/build/closurebuilder.py
 chmod a+x third_party/closure_library/closure/bin/build/depswriter.py
 chmod a+x third_party/closure_templates/SoyToJsSrcCompiler.jar
 chmod a+x third_party/closure_stylesheets/closure-stylesheets-20111230.jar
-```
-
-2. Install the Google javascript linter.
-
-```bash
-sudo easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz
 ```
 
 ## Building
