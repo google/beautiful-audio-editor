@@ -21,7 +21,7 @@
 // NOTE(chizeng): UPPERCASE constants are preprocessed (replaced
 // with actual values) during building.
 
-var cacheVersion = 'CACHE_VERSION_24';
+var cacheVersion = 'CACHE_VERSION_25';
 
 this.addEventListener('install', function(event) {
   // Install the service worker.
