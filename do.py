@@ -98,7 +98,7 @@ def retrieve_all_gss_files_string():
 
 def create_uncompiled_stylesheet():
   """Creates an uncompiled, un-renamed stylesheet for debug mode."""
-  print 'Generating uncompiled CSS ...'
+  print ('Generating uncompiled CSS ...')
   gss_file_list_string = retrieve_all_gss_files_string()
   make_system_call("""
       java -jar third_party/closure_stylesheets/closure-stylesheets-20111230.jar \
@@ -108,7 +108,7 @@ def create_uncompiled_stylesheet():
 
 def compile_stylesheets():
   """Compiles GSS style sheet files."""
-  print 'Compiling CSS ...'
+  print ('Compiling CSS ...')
   rename_map_file_name = 'renaming_map.js'
   mobile_compile = False
   for word in sys.argv[2:]:
@@ -151,7 +151,7 @@ def compile_stylesheets():
 
 def compile_templates():
   """Compiles soy templates."""
-  print 'Compiling soy templates ...'
+  print ('Compiling soy templates ...')
   soy_file_list_string = retrieve_file_list_string('*.soy')
   make_system_call("""
       java -jar third_party/closure_templates/SoyToJsSrcCompiler.jar \
@@ -163,7 +163,7 @@ def compile_templates():
 
 def compile_javascript():
   """Compiles the javascript."""
-  print 'Compiling javascript ...'
+  print ('Compiling javascript ...')
   call = 'java -client -jar third_party/closure_compiler/compiler.jar '
   keywords = {}
   mobile_compile = False
@@ -227,7 +227,7 @@ def compile_javascript():
 def generate_deps():
   """Generates a dependencies list so we can view the app in uncompiled mode."""
   # Generate a debug version of the CSS as well.
-  print 'Generating dependencies ...'
+  print ('Generating dependencies ...')
   deps_file_name = 'deps.js'
   for word in sys.argv[2:]:
     if word == 'mobile':
@@ -264,7 +264,7 @@ def build_client():
 
 def update_manifest():
   """Updates the version number in the manifest for the Chrome app."""
-  print 'Writing Google manifest ...'
+  print ('Writing Google manifest ...')
   manifest_file_name = 'manifest.json'
   chrome_app_directory = 'build/chrome-app/'
   manifest_path = chrome_app_directory + manifest_file_name
@@ -289,7 +289,7 @@ def update_manifest():
 
 def copy_build_to_server():
   """Copies static files including compiled js and css to the server."""
-  print 'Copying third_party js into build/js ...'
+  print ('Copying third_party js into build/js ...')
   third_party_js_dir = 'third_party/js'
   files = os.listdir(third_party_js_dir)
   for f in files:
@@ -297,7 +297,7 @@ def copy_build_to_server():
       continue
     shutil.copyfile(
         os.path.join(third_party_js_dir, f), os.path.join('build/js', f))
-  print 'Copying files to local app server ...'
+  print ('Copying files to local app server ...')
   files_to_ignore = {
     '.DS_Store': 1,
     'README.md': 1,
@@ -406,7 +406,7 @@ def copy_html_to_server():
 
 def prepare_web_view_files():
   '''Copies files to serve from a web view into the relevant directory.'''
-  print 'Aggregating web view files ...'
+  print ('Aggregating web view files ...')
   build_dir = 'build'
   web_view_dir_name = 'webview-files'
   full_web_view_path = os.path.join(build_dir, web_view_dir_name)
@@ -466,7 +466,7 @@ def set_server():
   copy_build_to_server()
 
 def prepend_license():
-  print "Preprending Apache 2.0 licenses to blocks of code ..."
+  print ("Preprending Apache 2.0 licenses to blocks of code ...")
   directories = ['build', 'src/js/original', 'src/python']
   for directory_name in directories:
     for root, dirnames, filenames in os.walk(directory_name):
@@ -495,7 +495,7 @@ def prepend_license():
 
 def aggregate_tests():
   '''Aggregates the list of all tests into a file.'''
-  print 'Aggregating all tests into auto_generated/all_tests.js.'
+  print ('Aggregating all tests into auto_generated/all_tests.js.')
   test_html_files = []
   for root, directories, files in os.walk('src/js/original'):
     for file in files:
@@ -541,14 +541,14 @@ if __name__ == '__main__':
     # Set the default command.
     command = DEFAULT_COMMAND
   elif len(sys.argv) < 2:
-    print 'Usage: python do.py [command] [other arguments]'
+    print ('Usage: python do.py [command] [other arguments]')
     exit(1)
   else:
     command = sys.argv[1]
 
   if command not in commands:
-    print 'Command ' + command + ' not recognized by do.'
+    print ('Command ' + command + ' not recognized by do.')
     exit(1)
 
-  print '* do.py performing the "%s" command.' % command
+  print ('* do.py performing the "%s" command.' % command)
   commands[command]()
